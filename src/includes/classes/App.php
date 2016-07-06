@@ -47,6 +47,9 @@ class App extends SCoreClasses\App
      */
     public function __construct(array $instance = [])
     {
+        $is_multisite = is_multisite();
+        $is_main_site = !$is_multisite || is_main_site();
+
         $instance_base = [
             '©di' => [
                 '©default_rule' => [
@@ -55,104 +58,26 @@ class App extends SCoreClasses\App
                 ],
             ],
 
-            '§specs' => [
-                /*
-                    '§is_pro'          => false,
-                    '§in_wp'           => false,
-                    '§is_network_wide' => false,
-
-                    '§type'            => '',
-                    '§file'            => '',
-                */
-            ],
-
             '©brand' => [
-                /*
-                    '©name'        => '',
-                    '©acronym'     => '',
+                '©name'    => '[if /] Shortcode',
+                '©acronym' => 'IFSC',
 
-                    '©text_domain' => '',
+                '©text_domain' => 'if-shortcode',
 
-                    '©slug'        => '',
-                    '©var'         => '',
+                '©slug' => 'if-shortcode',
+                '©var'  => 'if_shortcode',
 
-                    '©short_slug'  => '',
-                    '©short_var'   => '',
-                */
+                '©short_slug' => 'if-sc',
+                '©short_var'  => 'if_sc',
             ],
 
-            '§pro_option_keys' => [],
-            '§default_options' => [],
-
-            '§conflicts' => [
-                '§plugins' => [
-                    /*
-                        '[slug]'  => '[name]',
-                    */
-                ],
-                '§themes' => [
-                    /*
-                        '[slug]'  => '[name]',
-                    */
-                ],
-                '§deactivatable_plugins' => [
-                    /*
-                        '[slug]'  => '[name]',
-                    */
-                ],
+            '§pro_option_keys' => [
+                'expr_enable',
+                'for_blog_enable',
             ],
-            '§dependencies' => [
-                '§plugins' => [
-                    /*
-                        '[slug]' => [
-                            'name'        => '',
-                            'url'         => '',
-                            'archive_url' => '',
-                            'in_wp'       => true,
-                            'test'        => function(string $slug) {},
-
-                            A test function is optional.
-                            A successful test must return nothing.
-                            A failed test must return an array with:
-                                - `reason`      = One of: `needs-upgrade|needs-downgrade`.
-                                - `min_version` = Min version, if `reason=needs-upgrade`.
-                                - `max_version` = Max version, if `reason=needs-downgrade`.
-                        ],
-                    */
-                ],
-                '§themes' => [
-                    /*
-                        '[slug]' => [
-                            'name'        => '',
-                            'url'         => '',
-                            'archive_url' => '',
-                            'in_wp'       => true,
-                            'test'        => function(string $slug) {},
-
-                            A test function is optional.
-                            A successful test must return nothing.
-                            A failed test must return an array with:
-                                - `reason`      = One of: `needs-upgrade|needs-downgrade`.
-                                - `min_version` = Min version, if `reason=needs-upgrade`.
-                                - `max_version` = Max version, if `reason=needs-downgrade`.
-                        ],
-                    */
-                ],
-                '§others' => [
-                    /*
-                        '[arbitrary key]' => [
-                            'name'        => '', // Short plain-text name; i.e., '[name]' Required
-                            'description' => '', // Brief rich-text description; i.e., It requires [description].
-                            'test'        => function(string $key) {},
-
-                            A test function is required.
-                            A successful test must return nothing.
-                            A failed test must return an array with:
-                                - `how_to_resolve` = Brief rich-text description; i.e., → To resolve, [how_to_resolve].
-                                - `cap_to_resolve` = Cap required to satisfy; e.g., `manage_options`.
-                        ],
-                    */
-                ],
+            '§default_options' => [
+                'expr_enable'     => $is_multisite && !$is_main_site ? '0' : '1',
+                'for_blog_enable' => $is_multisite && !$is_main_site ? '0' : '1',
             ],
         ];
         parent::__construct($instance_base, $instance);
@@ -176,5 +101,17 @@ class App extends SCoreClasses\App
     protected function onSetupOtherHooks()
     {
         parent::onSetupOtherHooks();
+
+        $if_shortcode_name = s::applyFilters('name');
+
+        for ($_i = 0, $if_shortcode_names = []; $_i < 5; ++$_i) {
+            add_shortcode($if_shortcode_names[] = str_repeat('_', $_i).$if_shortcode_name, [$this->Utils->Shortcode, 'onShortcode']);
+        } // unset($_i); // Housekeeping.
+
+        add_filter('no_texturize_shortcodes', function (array $shortcodes) use ($if_shortcode_names) {
+            return array_merge($shortcodes, $if_shortcode_names);
+        }); // See: <http://jas.xyz/24AusB7> for more about this filter.
+
+        add_filter('widget_text', 'do_shortcode'); // Enable shortcodes in widgets.
     }
 }
