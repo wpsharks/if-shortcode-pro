@@ -1,0 +1,28 @@
+project_title                               = [if /] Shortcode Pro
+
+project_owner                               = websharks
+project_slug                                = if-shortcode-pro
+project_text_domain                         = if-shortcode
+
+project_namespace                           = WebSharks\\WpSharks\\IfShortcode\\Pro
+project_sub_namespace                       = WpSharksIfShortcodePro
+
+project_lite_title                          = [if /] Shortcode
+project_lite_slug                           = if-shortcode
+project_lite_text_domain                    = if-shortcode
+
+project_lite_namespace                      = WebSharks\\WpSharks\\IfShortcode
+project_lite_sub_namespace                  = WpSharksIfShortcode
+
+project_version                             = %y%m%d.%now
+
+project_php_required_version                = 7.0.4
+project_php_tested_up_to_version            = ${php.version}
+project_php_required_bits                   = 64
+project_php_required_extensions             =
+
+project_wp_required_version                 = 4.5.3
+project_wp_tested_up_to_version             = 4.5.3
+
+project_wp_sharks_core_required_version     = 160706.64464
+project_wp_sharks_core_tested_up_to_version = 160706.64464
