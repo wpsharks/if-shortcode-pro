@@ -72,12 +72,14 @@ class App extends SCoreClasses\App
             ],
 
             '§pro_option_keys' => [
-                'att_expr_enable',
-                'att_for_blog_enable',
+                'enable_expr_att',
+                'enable_for_blog_att',
+                'enable_woocommerce_conditionals',
             ],
             '§default_options' => [
-                'att_expr_enable'     => $is_multisite && !$is_main_site ? '0' : '1',
-                'att_for_blog_enable' => $is_multisite && !$is_main_site ? '0' : '1',
+                'enable_expr_att'                 => $is_multisite && !$is_main_site ? '0' : '1',
+                'enable_for_blog_att'             => $is_multisite && !$is_main_site ? '0' : '1',
+                'enable_woocommerce_conditionals' => '0',
             ],
         ];
         parent::__construct($instance_base, $instance);

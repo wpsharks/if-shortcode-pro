@@ -126,7 +126,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
          * - [if expr="current_user_can('access_ccap_one') or get_user_option('meta_key') === 'value'" /]
          */
         if ($atts['expr']) {
-            if (!s::getOption('att_expr_enable')) {
+            if (!s::getOption('enable_expr_att')) {
                 // This is disabled by default. If enabled, a filter can disable it on child sites of a network.
                 // add_filter('s2member_x_options', function(array $options) { $options['if_shortcode_expr_enable'] = '0'; return $options; });
                 trigger_error(sprintf(__('`[%1$s /]` shortcode attribute `expr=""` not enabled on this site.', 'if-shortcode'), $shortcode), E_USER_ERROR);
@@ -172,7 +172,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
             } elseif (!preg_match('/\((?:(?:[^()]+)|(?R))*\)/u', '('.$atts['current_user_can'].')', $_m) || $_m[0] !== '('.$atts['current_user_can'].')') {
                 trigger_error(sprintf(__('`[%1$s /]` shortcode attribute `current_user_can="%2$s"` contains unbalanced `()` brackets.', 'if-shortcode'), $shortcode, $atts['current_user_can']), E_USER_ERROR);
                 return ''; // Return empty string in case of error handlers allowing this to slide.
-            } elseif ($atts['for_blog'] && $is_multisite && !s::getOption('att_for_blog_enable')) {
+            } elseif ($atts['for_blog'] && $is_multisite && !s::getOption('enable_for_blog_att')) {
                 // This is disabled by default. If enabled, a filter can disable it on child sites of a network.
                 // add_filter('woocommerce_s2member_x_options', function(array $options) { $options['if_shortcode_for_blog_enable'] = '0'; return $options; });
                 trigger_error(sprintf(__('`[%1$s /]` shortcode attribute `for_blog=""` not enabled on this site.', 'if-shortcode'), $shortcode), E_USER_ERROR);
