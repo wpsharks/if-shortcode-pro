@@ -25,14 +25,14 @@ use function get_defined_vars as vars;
 /**
  * Shortcode handler.
  *
-60707.450 Initial release.
+ * @since 16xxxx Initial release.
  */
 class Shortcode extends SCoreClasses\SCore\Base\Core
 {
     /**
      * Shortcode [if] name.
      *
-60707.450 Initial release.
+     * @since 16xxxx Initial release.
      *
      * @param string Shortcode [if] name.
      */
@@ -41,7 +41,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Shortcode [else] name.
      *
-60707.450 Initial release.
+     * @since 16xxxx Initial release.
      *
      * @param string Shortcode [else] name.
      */
@@ -50,7 +50,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Class constructor.
      *
-60707.450 Initial release.
+     * @since 16xxxx Initial release.
      *
      * @param Classes\App $App Instance.
      */
@@ -65,7 +65,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * `[if /]` shortcode.
      *
-60707.450 Initial release.
+     * @since 16xxxx Initial release.
      *
      * @param array       $atts      Shortcode attributes.
      * @param string|null $content   Shortcode content.

@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the [if /] Shortcode package.
 msgid ""
 msgstr ""
-"Project-Id-Version: [if /] Shortcode 160707.450\n"
+"Project-Id-Version: [if /] Shortcode 160707.2483\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/if-shortcode-pro\n"
-"POT-Creation-Date: 2016-07-07 00:08:55+00:00\n"
+"POT-Creation-Date: 2016-07-07 00:41:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,42 +12,92 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:132
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:132
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:132
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:132
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:132
 #: src/includes/classes/Utils/Shortcode.php:132
 msgid "`[%1$s /]` shortcode attribute `expr=\"\"` not enabled on this site."
 msgstr ""
 
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:170
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:170
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:170
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:170
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:170
 #: src/includes/classes/Utils/Shortcode.php:170
 msgid "`[%1$s /]` shortcode attribute `current_user_can=\"%2$s\"` contains apostrophe."
 msgstr ""
 
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:173
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:173
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:173
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:173
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:173
 #: src/includes/classes/Utils/Shortcode.php:173
 msgid "`[%1$s /]` shortcode attribute `current_user_can=\"%2$s\"` contains unbalanced `()` brackets."
 msgstr ""
 
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:178
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:178
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:178
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:178
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:178
 #: src/includes/classes/Utils/Shortcode.php:178
 msgid "`[%1$s /]` shortcode attribute `for_blog=\"\"` not enabled on this site."
 msgstr ""
 
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:216
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:216
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:216
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:216
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:216
 #: src/includes/classes/Utils/Shortcode.php:216
 msgid "`[%1$s /]` shortcode attribute `current_user_option=\"%2$s\"` contains apostrophe."
 msgstr ""
 
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:219
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:219
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:219
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:219
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:219
 #: src/includes/classes/Utils/Shortcode.php:219
 msgid "`[%1$s /]` shortcode attribute `current_user_option=\"%2$s\"` contains unbalanced `()` brackets."
 msgstr ""
 
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:239
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:239
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:239
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:239
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:239
 #: src/includes/classes/Utils/Shortcode.php:239
 msgid "`[%1$s /]` shortcode attribute `current_user_option` contains invalid operator: %2$s."
 msgstr ""
 
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:264
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:264
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:264
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:264
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:264
 #: src/includes/classes/Utils/Shortcode.php:264
 msgid "`[%1$s /]` shortcode attribute `current_user_meta=\"%2$s\"` contains apostrophe."
 msgstr ""
 
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:267
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:267
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:267
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:267
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:267
 #: src/includes/classes/Utils/Shortcode.php:267
 msgid "`[%1$s /]` shortcode attribute `current_user_meta=\"%2$s\"` contains unbalanced `()` brackets."
 msgstr ""
 
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:287
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:287
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:287
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:287
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:287
 #: src/includes/classes/Utils/Shortcode.php:287
 msgid "`[%1$s /]` shortcode attribute `current_user_meta` contains invalid operator: %2$s."
 msgstr ""
