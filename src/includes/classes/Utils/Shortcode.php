@@ -76,6 +76,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         $default_atts = [
             'expr'                => '',
             'is_user_logged_in'   => '',
+            'is_paying_customer'  => '',
             'current_user_can'    => '', 'for_blog' => '0',
             'current_user_option' => '', 'current_user_meta' => '',
             'satisfy'             => 'all',
@@ -89,6 +90,9 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
 
         $atts['is_user_logged_in'] = (string) $atts['is_user_logged_in'];
         $atts['is_user_logged_in'] = isset($atts['is_user_logged_in'][0]) ? filter_var($atts['is_user_logged_in'], FILTER_VALIDATE_BOOLEAN) : null;
+
+        $atts['is_paying_customer'] = (string) $atts['is_paying_customer'];
+        $atts['is_paying_customer'] = isset($atts['is_paying_customer'][0]) ? filter_var($atts['is_paying_customer'], FILTER_VALIDATE_BOOLEAN) : null;
 
         $atts['current_user_can'] = (string) $atts['current_user_can'];
         $atts['current_user_can'] = $atts['current_user_can'] ? c::unescHtml($atts['current_user_can']) : '';
@@ -157,6 +161,26 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 $conditions = $_is_user_logged_in_condition;
             }
             // unset($_is_user_logged_in_condition); // Housekeeping.
+        }
+        /*
+         * Add conditions from the `is_paying_customer=""` attribute, if applicable.
+         *
+         * - [if is_paying_customer="true" /]
+         * - [if is_paying_customer="yes" /]
+         * - [if is_paying_customer="false" /], etc.
+         */
+        if (isset($atts['is_paying_customer'])) {
+            if ($atts['is_paying_customer'] === false) {
+                $_is_paying_customer_condition = '(!defined(\'WC_VERSION\') || !get_user_meta('.$current_user_id.', \'paying_customer\', true))';
+            } else { // Default behavior is a boolean true.
+                $_is_paying_customer_condition = '(defined(\'WC_VERSION\') && get_user_meta('.$current_user_id.', \'paying_customer\', true))';
+            }
+            if ($conditions) {
+                $conditions .= ($atts['satisfy'] === 'any' ? ' || ' : ' && ').$_is_paying_customer_condition;
+            } else {
+                $conditions = $_is_paying_customer_condition;
+            }
+            // unset($_is_paying_customer_condition); // Housekeeping.
         }
         /*
          * Add conditions from the `current_user_can=""` attribute, if applicable.
