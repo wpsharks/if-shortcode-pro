@@ -23,16 +23,16 @@ use function assert as debug;
 use function get_defined_vars as vars;
 
 /**
- * App.
+ * App class.
  *
- * @since 160624.36295 Initial release.
+ * @since 16xxxx Initial release.
  */
 class App extends SCoreClasses\App
 {
     /**
      * Version.
      *
-     * @since 160624.36295
+     * @since 16xxxx Initial release.
      *
      * @type string Version.
      */
@@ -41,7 +41,7 @@ class App extends SCoreClasses\App
     /**
      * Constructor.
      *
-     * @since 160624.34776 Initial release.
+     * @since 16xxxx Initial release.
      *
      * @param array $instance Instance args.
      */
@@ -72,12 +72,12 @@ class App extends SCoreClasses\App
             ],
 
             '§pro_option_keys' => [
-                'expr_enable',
-                'for_blog_enable',
+                'att_expr_enable',
+                'att_for_blog_enable',
             ],
             '§default_options' => [
-                'expr_enable'     => $is_multisite && !$is_main_site ? '0' : '1',
-                'for_blog_enable' => $is_multisite && !$is_main_site ? '0' : '1',
+                'att_expr_enable'     => $is_multisite && !$is_main_site ? '0' : '1',
+                'att_for_blog_enable' => $is_multisite && !$is_main_site ? '0' : '1',
             ],
         ];
         parent::__construct($instance_base, $instance);
@@ -86,7 +86,7 @@ class App extends SCoreClasses\App
     /**
      * Early hook setup handler.
      *
-     * @since 160624.34776 Initial release.
+     * @since 16xxxx Initial release.
      */
     protected function onSetupEarlyHooks()
     {
@@ -96,15 +96,13 @@ class App extends SCoreClasses\App
     /**
      * Other hook setup handler.
      *
-     * @since 160624.34776 Initial release.
+     * @since 16xxxx Initial release.
      */
     protected function onSetupOtherHooks()
     {
         parent::onSetupOtherHooks();
 
-        $if_shortcode_name = s::applyFilters('name');
-
-        for ($_i = 0, $if_shortcode_names = []; $_i < 5; ++$_i) {
+        for ($_i = 0, $if_shortcode_name = $this->Utils->Shortcode->name, $if_shortcode_names = []; $_i < 5; ++$_i) {
             add_shortcode($if_shortcode_names[] = str_repeat('_', $_i).$if_shortcode_name, [$this->Utils->Shortcode, 'onShortcode']);
         } // unset($_i); // Housekeeping.
 
