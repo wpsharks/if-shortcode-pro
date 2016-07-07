@@ -1,0 +1,73 @@
+# Copyright (C) 2016 [if /] Shortcode
+# This file is distributed under the same license as the [if /] Shortcode package.
+msgid ""
+msgstr ""
+"Project-Id-Version: [if /] Shortcode 160707.450\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/if-shortcode-pro\n"
+"POT-Creation-Date: 2016-07-07 00:08:55+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: src/includes/classes/Utils/Shortcode.php:132
+msgid "`[%1$s /]` shortcode attribute `expr=\"\"` not enabled on this site."
+msgstr ""
+
+#: src/includes/classes/Utils/Shortcode.php:170
+msgid "`[%1$s /]` shortcode attribute `current_user_can=\"%2$s\"` contains apostrophe."
+msgstr ""
+
+#: src/includes/classes/Utils/Shortcode.php:173
+msgid "`[%1$s /]` shortcode attribute `current_user_can=\"%2$s\"` contains unbalanced `()` brackets."
+msgstr ""
+
+#: src/includes/classes/Utils/Shortcode.php:178
+msgid "`[%1$s /]` shortcode attribute `for_blog=\"\"` not enabled on this site."
+msgstr ""
+
+#: src/includes/classes/Utils/Shortcode.php:216
+msgid "`[%1$s /]` shortcode attribute `current_user_option=\"%2$s\"` contains apostrophe."
+msgstr ""
+
+#: src/includes/classes/Utils/Shortcode.php:219
+msgid "`[%1$s /]` shortcode attribute `current_user_option=\"%2$s\"` contains unbalanced `()` brackets."
+msgstr ""
+
+#: src/includes/classes/Utils/Shortcode.php:239
+msgid "`[%1$s /]` shortcode attribute `current_user_option` contains invalid operator: %2$s."
+msgstr ""
+
+#: src/includes/classes/Utils/Shortcode.php:264
+msgid "`[%1$s /]` shortcode attribute `current_user_meta=\"%2$s\"` contains apostrophe."
+msgstr ""
+
+#: src/includes/classes/Utils/Shortcode.php:267
+msgid "`[%1$s /]` shortcode attribute `current_user_meta=\"%2$s\"` contains unbalanced `()` brackets."
+msgstr ""
+
+#: src/includes/classes/Utils/Shortcode.php:287
+msgid "`[%1$s /]` shortcode attribute `current_user_meta` contains invalid operator: %2$s."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "[if /] Shortcode"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://wpsharks.com/product/if-shortcode"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "[if /] shortcode for WordPress."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WP Sharks™"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://wpsharks.com"
+msgstr ""
