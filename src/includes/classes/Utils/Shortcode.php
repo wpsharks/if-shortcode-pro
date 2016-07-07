@@ -171,9 +171,9 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
          */
         if (isset($atts['is_paying_customer'])) {
             if ($atts['is_paying_customer'] === false) {
-                $_is_paying_customer_condition = '(!defined(\'WC_VERSION\') || !get_user_meta('.$current_user_id.', \'paying_customer\', true))';
+                $_is_paying_customer_condition = '(!'.$current_user_id.' || !defined(\'WC_VERSION\') || !get_user_meta('.$current_user_id.', \'paying_customer\', true))';
             } else { // Default behavior is a boolean true.
-                $_is_paying_customer_condition = '(defined(\'WC_VERSION\') && get_user_meta('.$current_user_id.', \'paying_customer\', true))';
+                $_is_paying_customer_condition = '('.$current_user_id.' && defined(\'WC_VERSION\') && get_user_meta('.$current_user_id.', \'paying_customer\', true))';
             }
             if ($conditions) {
                 $conditions .= ($atts['satisfy'] === 'any' ? ' || ' : ' && ').$_is_paying_customer_condition;
