@@ -14,6 +14,6 @@ add_action('plugins_loaded', function () {
         require_once __DIR__.'/stub.php';
         new App(); // Plugin instance.
     } else {
-        wp_sharks_core_rv_notice('[if /] Shortcode Pro');
+        wp_sharks_core_rv_notice('[if] Shortcode Pro');
     }
 });

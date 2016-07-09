@@ -4,9 +4,9 @@
  *
  * @wp-plugin
  *
- * Version: 160707.2545
+ * Version: 160709.29360
  * Text Domain: if-shortcode
- * Plugin Name: [if /] Shortcode
+ * Plugin Name: [if] Shortcode
  *
  * Author: WP Sharks™
  * Author URI: https://wpsharks.com
@@ -27,5 +27,5 @@ require dirname(__FILE__).'/src/includes/wp-php-rv.php';
 if (require(dirname(__FILE__).'/src/vendor/websharks/wp-php-rv/src/includes/check.php')) {
     require_once dirname(__FILE__).'/src/includes/plugin.php';
 } else {
-    wp_php_rv_notice('[if /] Shortcode Pro');
+    wp_php_rv_notice('[if] Shortcode Pro');
 }

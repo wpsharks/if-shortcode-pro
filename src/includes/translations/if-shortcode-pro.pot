@@ -1,10 +1,10 @@
-# Copyright (C) 2016 [if /] Shortcode
-# This file is distributed under the same license as the [if /] Shortcode package.
+# Copyright (C) 2016 [if] Shortcode
+# This file is distributed under the same license as the [if] Shortcode package.
 msgid ""
 msgstr ""
-"Project-Id-Version: [if /] Shortcode 160707.2545\n"
+"Project-Id-Version: [if] Shortcode 160709.29360\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/if-shortcode-pro\n"
-"POT-Creation-Date: 2016-07-07 00:42:43+00:00\n"
+"POT-Creation-Date: 2016-07-09 08:09:24+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,48 +12,96 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: src/includes/classes/Utils/Shortcode.php:132
-msgid "`[%1$s /]` shortcode attribute `expr=\"\"` not enabled on this site."
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:296
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:296
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:296
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:296
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:296
+#: src/includes/classes/Utils/Shortcode.php:297
+msgid "The [%1$s] shortcode requires a legitimate use of PHP `eval()`."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:170
-msgid "`[%1$s /]` shortcode attribute `current_user_can=\"%2$s\"` contains apostrophe."
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:297
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:297
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:297
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:297
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:297
+#: src/includes/classes/Utils/Shortcode.php:298
+msgid "Unfortunately, `eval()` is currently disabled by your PHP configuration. Therefore, the use of this shortcode will not be possible."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:173
-msgid "`[%1$s /]` shortcode attribute `current_user_can=\"%2$s\"` contains unbalanced `()` brackets."
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:298
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:298
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:298
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:298
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:298
+#: src/includes/classes/Utils/Shortcode.php:299
+msgid "To resolve this issue, please contact your server administrator and ask them to enable `eval()` in PHP."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:178
-msgid "`[%1$s /]` shortcode attribute `for_blog=\"\"` not enabled on this site."
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:301
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:301
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:301
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:301
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:301
+#: src/includes/classes/Utils/Shortcode.php:302
+msgid "[%1$s] shortcode attribute `php=\"%2$s\"` is not enabled via plugin options."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:216
-msgid "`[%1$s /]` shortcode attribute `current_user_option=\"%2$s\"` contains apostrophe."
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:304
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:304
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:304
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:304
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:304
+#: src/includes/classes/Utils/Shortcode.php:305
+msgid "[%1$s] shortcode attribute `_for_blog=\"%2$s\"` is not enabled via plugin options."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:219
-msgid "`[%1$s /]` shortcode attribute `current_user_option=\"%2$s\"` contains unbalanced `()` brackets."
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:409
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:409
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:409
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:409
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:409
+#: src/includes/classes/Utils/Shortcode.php:410
+msgid "Arbitrary [%1$s] shortcode attribute `%2$s=\"%3$s\"` is not enabled via plugin options."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:239
-msgid "`[%1$s /]` shortcode attribute `current_user_option` contains invalid operator: %2$s."
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:411
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:411
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:411
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:411
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:411
+#: src/includes/classes/Utils/Shortcode.php:412
+msgid "Arbitrary [%1$s] shortcode attribute `%2$s=\"%3$s\"` is not whitelisted via plugin options."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:264
-msgid "`[%1$s /]` shortcode attribute `current_user_meta=\"%2$s\"` contains apostrophe."
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:446
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:446
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:446
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:446
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:446
+msgid "[%1$s] Shortcode Error:"
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:267
-msgid "`[%1$s /]` shortcode attribute `current_user_meta=\"%2$s\"` contains unbalanced `()` brackets."
+#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:471
+#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:471
+#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:471
+#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:471
+#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:471
+#: src/includes/classes/Utils/Shortcode.php:497
+msgid "[%1$s] shortcode attribute contains an invalid (or imbalanced) expression: `%2$s=\"%3$s\"`"
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:287
-msgid "`[%1$s /]` shortcode attribute `current_user_meta` contains invalid operator: %2$s."
+#: src/includes/classes/Utils/Shortcode.php:449
+msgid "[%1$s] Shortcode Conditions"
+msgstr ""
+
+#: src/includes/classes/Utils/Shortcode.php:467
+msgid "[%1$s] Shortcode Error"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "[if /] Shortcode"
+msgid "[if] Shortcode"
 msgstr ""
 
 #. Plugin URI of the plugin/theme

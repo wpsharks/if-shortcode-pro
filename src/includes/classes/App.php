@@ -36,7 +36,7 @@ class App extends SCoreClasses\App
      *
      * @type string Version.
      */
-    const VERSION = '160707.2545'; //v//
+    const VERSION = '160709.29360'; //v//
 
     /**
      * Constructor.
@@ -59,7 +59,7 @@ class App extends SCoreClasses\App
             ],
 
             '©brand' => [
-                '©name'    => '[if /] Shortcode',
+                '©name'    => '[if] Shortcode',
                 '©acronym' => 'IFSC',
 
                 '©text_domain' => 'if-shortcode',
@@ -72,25 +72,20 @@ class App extends SCoreClasses\App
             ],
 
             '§pro_option_keys' => [
-                'enable_expr_att',
+                'enable_php_att',
                 'enable_for_blog_att',
+                'enable_arbitrary_atts',
+                'whitelisted_arbitrary_atts',
             ],
             '§default_options' => [
-                'enable_expr_att'     => $is_multisite && !$is_main_site ? '0' : '1',
-                'enable_for_blog_att' => $is_multisite && !$is_main_site ? '0' : '1',
+                'enable_php_att'             => '1',
+                'enable_for_blog_att'        => '1',
+                'enable_arbitrary_atts'      => '1',
+                'whitelisted_arbitrary_atts' => '',
+                'debug_att_default'          => '1',
             ],
         ];
         parent::__construct($instance_base, $instance);
-    }
-
-    /**
-     * Early hook setup handler.
-     *
-     * @since 160707.2545 Initial release.
-     */
-    protected function onSetupEarlyHooks()
-    {
-        parent::onSetupEarlyHooks();
     }
 
     /**
@@ -102,6 +97,8 @@ class App extends SCoreClasses\App
     {
         parent::onSetupOtherHooks();
 
+        // General shortcode-related hooks & filters.
+
         for ($_i = 0, $if_shortcode_name = $this->Utils->Shortcode->name, $if_shortcode_names = []; $_i < 5; ++$_i) {
             add_shortcode($if_shortcode_names[] = str_repeat('_', $_i).$if_shortcode_name, [$this->Utils->Shortcode, 'onShortcode']);
         } // unset($_i); // Housekeeping.
@@ -111,5 +108,12 @@ class App extends SCoreClasses\App
         }); // See: <http://jas.xyz/24AusB7> for more about this filter.
 
         add_filter('widget_text', 'do_shortcode'); // Enable shortcodes in widgets.
+
+        // WooCommerce-specific hooks & filters.
+
+        if (defined('WC_VERSION')) {
+            add_action('save_post_product', [$this->Utils->WooCommerce, 'onSaveProduct']);
+            add_action('save_post_product_variation', [$this->Utils->WooCommerce, 'onSaveProductVariation']);
+        }
     }
 }

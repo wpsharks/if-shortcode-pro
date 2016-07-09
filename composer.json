@@ -1,7 +1,7 @@
 {
   "name": "websharks/if-shortcode-pro",
   "homepage": "https://github.com/websharks/if-shortcode-pro",
-  "description": "[if /] shortcode for WordPress, by WP Sharks™.",
+  "description": "[if] shortcode for WordPress, by WP Sharks™.",
   "keywords": ["websharks", "wpsharks", "if shortcode"],
 
   "type": "project",
