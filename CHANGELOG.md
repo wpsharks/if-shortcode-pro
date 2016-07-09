@@ -1,4 +1,4 @@
-## $v
+## v160709.39379
 
 - Updating to latest WPSC and websharks/core.
 - Refactor. Now using Simple Expression syntax from websharks/core.

@@ -32,7 +32,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * `[if /]` shortcode name.
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param string
      */
@@ -41,7 +41,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * `[else]` shortcode name.
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param string
      */
@@ -50,7 +50,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Initialized?
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param bool
      */
@@ -59,7 +59,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Multisite network?
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param bool
      */
@@ -68,7 +68,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * WooCommerce installed?
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param bool
      */
@@ -77,7 +77,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Can `eval()`?
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param bool
      */
@@ -86,7 +86,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * `php=""` attribute enabled?
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param bool
      */
@@ -95,7 +95,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * `for_blog=""` attribute enabled?
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param bool
      */
@@ -104,7 +104,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Arbitrary attributes enabled?
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param bool
      */
@@ -113,7 +113,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Whitelisted arbitrary attributes.
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param array
      */
@@ -122,7 +122,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Debug att default.
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param string
      */
@@ -131,7 +131,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Current user ID.
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param int
      */
@@ -140,7 +140,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Current shortcode depth.
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param int
      */
@@ -149,7 +149,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Current shortcode.
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param string
      */
@@ -158,7 +158,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Current raw attributes.
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param array
      */
@@ -167,7 +167,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Current attributes.
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param array
      */
@@ -176,7 +176,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Current conditions.
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param string
      */
@@ -185,7 +185,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Current errors.
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param array
      */
@@ -209,7 +209,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Maybe initialize.
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      */
     protected function maybeInitialize()
     {
@@ -528,7 +528,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Build conditions from simple expression.
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param string   $att      Shortcode attribute name.
      * @param callable $callback A callback handler.
@@ -544,7 +544,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Append conditions.
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @param string $conditions Conditions.
      */
@@ -562,7 +562,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Recreate shortcode.
      *
-     * @since 16xxxx Refactor.
+     * @since 160709.39379 Refactor.
      *
      * @return string Shortcode.
      */

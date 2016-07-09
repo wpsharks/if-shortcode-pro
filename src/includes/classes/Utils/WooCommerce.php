@@ -25,14 +25,14 @@ use function get_defined_vars as vars;
 /**
  * WooCommerce utils.
  *
- * @since 16xxxx WooCommerce utils.
+ * @since 160709.39379 WooCommerce utils.
  */
 class WooCommerce extends SCoreClasses\SCore\Base\Core
 {
     /**
      * Product ID by SKU.
      *
-     * @since 16xxxx WooCommerce utils.
+     * @since 160709.39379 WooCommerce utils.
      *
      * @param string $product_sku Product SKU.
      *
@@ -52,7 +52,7 @@ class WooCommerce extends SCoreClasses\SCore\Base\Core
     /**
      * Product IDs by SKU.
      *
-     * @since 16xxxx WooCommerce utils.
+     * @since 160709.39379 WooCommerce utils.
      *
      * @return array|null Product IDs by SKU, else `null` if there are too many SKUs.
      *                    If the default limit 2500 is exceeded, this utility is simply not capable of working.
@@ -105,7 +105,7 @@ class WooCommerce extends SCoreClasses\SCore\Base\Core
     /**
      * On product save.
      *
-     * @since 16xxxx WooCommerce utils.
+     * @since 160709.39379 WooCommerce utils.
      */
     public function onSaveProduct()
     {
@@ -115,7 +115,7 @@ class WooCommerce extends SCoreClasses\SCore\Base\Core
     /**
      * On product variation save.
      *
-     * @since 16xxxx WooCommerce utils.
+     * @since 160709.39379 WooCommerce utils.
      */
     public function onSaveProductVariation()
     {
