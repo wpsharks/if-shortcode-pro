@@ -78,9 +78,9 @@ class App extends SCoreClasses\App
                 'whitelisted_arbitrary_atts',
             ],
             '§default_options' => [
-                'enable_php_att'             => '1',
-                'enable_for_blog_att'        => '1',
-                'enable_arbitrary_atts'      => '1',
+                'enable_php_att'             => '0',
+                'enable_for_blog_att'        => '0',
+                'enable_arbitrary_atts'      => '0',
                 'whitelisted_arbitrary_atts' => '',
                 'debug_att_default'          => '1',
             ],
