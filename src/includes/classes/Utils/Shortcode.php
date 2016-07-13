@@ -57,24 +57,6 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     protected $initialized = false;
 
     /**
-     * Multisite network?
-     *
-     * @since 160709.39379 Refactor.
-     *
-     * @param bool
-     */
-    protected $is_multisite = false;
-
-    /**
-     * WooCommerce installed?
-     *
-     * @since 160709.39379 Refactor.
-     *
-     * @param bool
-     */
-    protected $is_wc_installed = false;
-
-    /**
      * Can `eval()`?
      *
      * @since 160709.39379 Refactor.
@@ -217,9 +199,6 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
             return; // Did this already.
         }
         $this->initialized = true;
-
-        $this->is_multisite    = is_multisite();
-        $this->is_wc_installed = defined('WC_VERSION');
 
         $this->can_eval                   = c::canCallFunc('eval');
         $this->enable_php_att             = (bool) s::getOption('enable_php_att');
@@ -370,7 +349,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 case 'current_user_can':
                     if ($this->current_atts[$_att_key]) {
                         $this->appendConditions($this->simpleExpr($_att_key, function ($cap) {
-                            return $this->current_atts['_for_blog'] && $this->is_multisite
+                            return $this->current_atts['_for_blog'] && $this->Wp->is_multisite
                                 ? 'current_user_can_for_blog('.$this->current_atts['_for_blog'].', '.c::sQuote($cap).')'
                                 : 'current_user_can('.c::sQuote($cap).')';
                         }));
@@ -409,7 +388,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 case 'current_user_is_paying_customer':
                     if ($this->current_atts[$_att_key]) {
                         $_negating = $this->current_atts[$_att_key] === 'false' ? '!' : '';
-                        $this->appendConditions($_negating.'('.(int) $this->is_wc_installed.' && '.$this->current_user_id.' ? (bool) get_user_meta('.$this->current_user_id.', \'paying_customer\', true) : false)');
+                        $this->appendConditions($_negating.'('.(int) $this->Wp->is_wc_active.' && '.$this->current_user_id.' ? (bool) get_user_meta('.$this->current_user_id.', \'paying_customer\', true) : false)');
                     }
                     break;
 
@@ -419,7 +398,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 case 'current_user_bought_product':
                     if ($this->current_atts[$_att_key]) {
                         $this->appendConditions($this->simpleExpr($_att_key, function ($sku) {
-                            return '('.(int) $this->is_wc_installed.' && '.$this->current_user_id.' ? (bool) wc_customer_bought_product(\'\', '.$this->current_user_id.', '.a::class.'::wcProductIdBySku('.c::sQuote($sku).')) : false)';
+                            return '('.(int) $this->Wp->is_wc_active.' && '.$this->current_user_id.' ? (bool) wc_customer_bought_product(\'\', '.$this->current_user_id.', '.a::class.'::wcProductIdBySku('.c::sQuote($sku).')) : false)';
                         }));
                     }
                     break;
@@ -473,9 +452,9 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
             } else {
                 $conditions_true = false; // Force false; not possible.
             }
-        } catch (\Throwable $eval_Exception) {
+        } catch (\Throwable $eval_Throwable) {
             $conditions_true        = false; // Force false.
-            $this->current_errors[] = $eval_Exception->getMessage();
+            $this->current_errors[] = $eval_Throwable->getMessage();
         }
 
         /*

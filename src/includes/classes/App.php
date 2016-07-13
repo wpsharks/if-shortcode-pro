@@ -47,9 +47,6 @@ class App extends SCoreClasses\App
      */
     public function __construct(array $instance = [])
     {
-        $is_multisite = is_multisite();
-        $is_main_site = !$is_multisite || is_main_site();
-
         $instance_base = [
             '©di' => [
                 '©default_rule' => [
@@ -58,17 +55,21 @@ class App extends SCoreClasses\App
                 ],
             ],
 
+            '§specs' => [
+                '§type' => 'plugin',
+                '§file' => dirname(__FILE__, 4).'/plugin.php',
+            ],
             '©brand' => [
-                '©name'    => '[if] Shortcode',
                 '©acronym' => 'IFSC',
-
-                '©text_domain' => 'if-shortcode',
+                '©name'    => '[if] Shortcode',
 
                 '©slug' => 'if-shortcode',
                 '©var'  => 'if_shortcode',
 
                 '©short_slug' => 'if-sc',
                 '©short_var'  => 'if_sc',
+
+                '©text_domain' => 'if-shortcode',
             ],
 
             '§pro_option_keys' => [
