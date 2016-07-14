@@ -1,10 +1,10 @@
-# Copyright (C) 2016 [if] Shortcode
-# This file is distributed under the same license as the [if] Shortcode package.
+# Copyright (C) 2016 [if] Shortcode Pro
+# This file is distributed under the same license as the [if] Shortcode Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: [if] Shortcode 160709.39379\n"
+"Project-Id-Version: [if] Shortcode Pro 160713.41453\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/if-shortcode-pro\n"
-"POT-Creation-Date: 2016-07-09 10:57:06+00:00\n"
+"POT-Creation-Date: 2016-07-14 10:25:29+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,70 +12,70 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: src/includes/classes/Utils/Shortcode.php:321
+#: src/includes/classes/Utils/Shortcode.php:300
 msgid "The `[%1$s]` shortcode requires the legitimate use of PHP `eval()`."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:322
+#: src/includes/classes/Utils/Shortcode.php:301
 msgid "Unfortunately, `eval()` is currently disabled by your PHP configuration. Therefore, the use of this shortcode will not be possible."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:323
+#: src/includes/classes/Utils/Shortcode.php:302
 msgid "To resolve this issue, please contact your server administrator and ask them to enable `eval()` in PHP."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:326
+#: src/includes/classes/Utils/Shortcode.php:305
 msgid "`[%1$s]` shortcode attribute `php=\"%2$s\"` is not enabled via plugin options."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:329
+#: src/includes/classes/Utils/Shortcode.php:308
 msgid "`[%1$s]` shortcode attribute `_for_blog=\"%2$s\"` is not enabled via plugin options."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:332
+#: src/includes/classes/Utils/Shortcode.php:311
 msgid "`[%1$s]` shortcode attribute names, by themselves, without `=\"\"`, are not supported at this time; because that particular format depends on functionality which may change in a future version of WP."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:439
+#: src/includes/classes/Utils/Shortcode.php:418
 msgid "`[%1$s]` shortcode attribute `%2$s`, by itself, without `=\"\"`, is not supported. Instead, use `%2$s=\"true\"`. Consult the shortcode documentation for assistance."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:444
+#: src/includes/classes/Utils/Shortcode.php:423
 msgid "Arbitrary `[%1$s]` shortcode attribute `%2$s=\"%3$s\"` is not enabled via plugin options."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:446
+#: src/includes/classes/Utils/Shortcode.php:425
 msgid "Arbitrary `[%1$s]` shortcode attribute `%2$s=\"%3$s\"` is not whitelisted via plugin options."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:448
+#: src/includes/classes/Utils/Shortcode.php:427
 msgid "Arbitrary `[%1$s]` shortcode attribute `%2$s=\"%3$s\"` contains invalid chars in the attribute name. Must match: `^[a-z][a-z0-9_]+[a-z0-9]$`."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:486
+#: src/includes/classes/Utils/Shortcode.php:465
 msgid "<code>[%1$s]</code> Shortcode Verbose"
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:487
+#: src/includes/classes/Utils/Shortcode.php:466
 msgid "<code>[%1$s]</code> Shortcode Atts"
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:488
+#: src/includes/classes/Utils/Shortcode.php:467
 msgid "<code>[%1$s]</code> Shortcode Conditions"
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:506
+#: src/includes/classes/Utils/Shortcode.php:485
 msgid "<code>[%1$s]</code> Shortcode Error"
 msgid_plural "<code>[%1$s]</code> Shortcode Errors"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/includes/classes/Utils/Shortcode.php:539
+#: src/includes/classes/Utils/Shortcode.php:518
 msgid "`[%1$s]` shortcode attribute contains an invalid (or imbalanced) expression: `%2$s=\"%3$s\"`"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "[if] Shortcode"
+msgid "[if] Shortcode Pro"
 msgstr ""
 
 #. Plugin URI of the plugin/theme

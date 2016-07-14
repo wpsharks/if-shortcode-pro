@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/websharks/wp-php-rv.git",
-                "reference": "261522cbb879b0505455a2dde8eb1d67ca20bbd7"
+                "reference": "0e133e9da484f2adefd43c837f8b8f35e7e1618b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/websharks/wp-php-rv/zipball/261522cbb879b0505455a2dde8eb1d67ca20bbd7",
-                "reference": "261522cbb879b0505455a2dde8eb1d67ca20bbd7",
+                "url": "https://api.github.com/repos/websharks/wp-php-rv/zipball/0e133e9da484f2adefd43c837f8b8f35e7e1618b",
+                "reference": "0e133e9da484f2adefd43c837f8b8f35e7e1618b",
                 "shasum": ""
             },
             "require": {
@@ -31,19 +31,19 @@
             ],
             "authors": [
                 {
-                    "name": "websharks",
-                    "homepage": "http://websharks-inc.com/",
-                    "role": "company"
-                },
-                {
                     "name": "jaswsinc",
-                    "homepage": "http://jaswsinc.com/",
+                    "homepage": "https://jaswsinc.com",
                     "role": "developer"
                 },
                 {
                     "name": "raamdev",
-                    "homepage": "http://raam.org/",
+                    "homepage": "http://raam.org",
                     "role": "developer"
+                },
+                {
+                    "name": "wpsharks",
+                    "homepage": "https://wpsharks.com",
+                    "role": "company"
                 }
             ],
             "description": "Stub for WordPress themes/plugins that require PHP vX.x+.",
@@ -51,9 +51,10 @@
             "keywords": [
                 "php",
                 "websharks",
-                "wordpress"
+                "wordpress",
+                "wpsharks"
             ],
-            "time": "2016-05-31 03:56:40"
+            "time": "2016-07-12 11:55:29"
         },
         {
             "name": "websharks/wp-sharks-core-rv",
@@ -61,12 +62,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/websharks/wp-sharks-core-rv.git",
-                "reference": "84a0b1bb288d913527bce820a010377d12aa33aa"
+                "reference": "96601dcdf8153fe41b705d704196b28fa918ca3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/websharks/wp-sharks-core-rv/zipball/84a0b1bb288d913527bce820a010377d12aa33aa",
-                "reference": "84a0b1bb288d913527bce820a010377d12aa33aa",
+                "url": "https://api.github.com/repos/websharks/wp-sharks-core-rv/zipball/96601dcdf8153fe41b705d704196b28fa918ca3c",
+                "reference": "96601dcdf8153fe41b705d704196b28fa918ca3c",
                 "shasum": ""
             },
             "require": {
@@ -79,19 +80,19 @@
             ],
             "authors": [
                 {
-                    "name": "websharks",
-                    "homepage": "http://websharks-inc.com/",
-                    "role": "company"
-                },
-                {
                     "name": "jaswsinc",
-                    "homepage": "http://jaswsinc.com/",
+                    "homepage": "https://jaswsinc.com",
                     "role": "developer"
                 },
                 {
                     "name": "raamdev",
-                    "homepage": "http://raam.org/",
+                    "homepage": "http://raam.org",
                     "role": "developer"
+                },
+                {
+                    "name": "wpsharks",
+                    "homepage": "https://wpsharks.com",
+                    "role": "company"
                 }
             ],
             "description": "Stub for WordPress themes/plugins that require the WP Sharks™ Core.",
@@ -101,7 +102,7 @@
                 "wordpress",
                 "wpsharks"
             ],
-            "time": "2016-06-20 08:47:07"
+            "time": "2016-07-12 12:03:01"
         }
     ],
     "packages-dev": [],
