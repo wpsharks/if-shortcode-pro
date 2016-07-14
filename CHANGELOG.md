@@ -1,4 +1,4 @@
-## $v
+## v160714.41537
 
 - Bug fix. Loose types for `onShortcode()` handler.
 
