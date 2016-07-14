@@ -213,11 +213,11 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
      *
      * @since 160707.2545 Initial release.
      *
-     * @param array  $atts      Shortcode attributes.
-     * @param string $content   Shortcode content.
-     * @param string $shortcode Shortcode name.
+     * @param array|string $atts      Shortcode attributes.
+     * @param string|null  $content   Shortcode content.
+     * @param string       $shortcode Shortcode name.
      */
-    public function onShortcode(array $atts, $content = '', $shortcode = ''): string
+    public function onShortcode($atts, $content = '', $shortcode = ''): string
     {
         /*
          * Maybe initialize.
@@ -227,6 +227,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         /*
          * Content/shortcode.
          */
+        $atts      = is_array($atts) ? $atts : [];
         $content   = (string) $content;
         $shortcode = (string) $shortcode;
 

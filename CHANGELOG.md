@@ -1,3 +1,7 @@
+## $v
+
+- Bug fix. Loose types for `onShortcode()` handler.
+
 ## v160713.41453
 
 - Updating to the latest WP Sharks Core.
