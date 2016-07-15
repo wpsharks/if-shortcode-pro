@@ -1,3 +1,7 @@
+## $v
+
+- Updating to latest websharks/core with Simple Expression bug fixes that improve this plugin.
+
 ## v160714.41537
 
 - Bug fix. Loose types for `onShortcode()` handler.
