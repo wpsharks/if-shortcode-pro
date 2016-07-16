@@ -15,7 +15,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
  * Plugin URI: https://wpsharks.com/product/if-shortcode
- * Description: [if /] shortcode for WordPress.
+ * Description: [if] shortcode for WordPress.
  */
 // PHP v5.2 compatible.
 
