@@ -476,16 +476,17 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
          */
         if ($this->current_errors) {
             if ($this->current_atts['_debug']) {
-                $error_colors   = 'background:#b30000; color:#FFFFFF;';
-                $error_li_first = '<li style="background:inherit; color:inherit; margin:0; padding:0;">';
-                $error_li       = '<li style="background:inherit; color:inherit; margin:1em 0 0 0; padding:0;">';
+                $error_colors     = 'background:#b30000; color:#FFFFFF;';
+                $error_pre_colors = 'background:#cccccc; color:#000000;';
+                $error_li_first   = '<li style="background:inherit; color:inherit; margin:0; padding:0;">';
+                $error_li         = '<li style="background:inherit; color:inherit; margin:1em 0 0 0; padding:0;">';
 
                 return $debug_verbose.// Verbose debug output (if enabled).
                         '<div style="'.esc_attr($error_colors).' padding:1em; border-radius:.25em;">'.
                             '<h4 style="background:inherit; color:inherit; margin:0 0 .5em 0; padding:0 0 .5em 0; line-height:1em; border-bottom:1px solid;">'.
                                 sprintf(_n('<code>[%1$s]</code> Shortcode Error', '<code>[%1$s]</code> Shortcode Errors', count($this->current_errors), 'if-shortcode'), esc_html($this->name)).
                             '</h4>'.
-                            '<pre style="padding:1em; margin:0 0 .5em 0; border-radius:.25em; max-width:100%; overflow:auto;">'.
+                            '<pre style="'.esc_attr($error_pre_colors).' padding:1em; margin:0 0 .5em 0; border-radius:.25em; max-width:100%; overflow:auto;">'.
                                 esc_html($this->recreate()).
                             '</pre>'.
                             '<ul style="margin:0 0 0 2em; padding:0; background:inherit; color:inherit;">'.
