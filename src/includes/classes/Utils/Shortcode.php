@@ -204,7 +204,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         $this->enable_php_att             = (bool) s::getOption('enable_php_att');
         $this->enable_for_blog_att        = (bool) s::getOption('enable_for_blog_att');
         $this->enable_arbitrary_atts      = (bool) s::getOption('enable_arbitrary_atts');
-        $this->whitelisted_arbitrary_atts = $this->enable_arbitrary_atts ? preg_split('/\s+/u', s::getOption('whitelisted_arbitrary_atts'), -1, PREG_SPLIT_NO_EMPTY) : [];
+        $this->whitelisted_arbitrary_atts = $this->enable_arbitrary_atts ? preg_split('/[\s,]+/u', s::getOption('whitelisted_arbitrary_atts'), -1, PREG_SPLIT_NO_EMPTY) : [];
         $this->debug_att_default          = s::getOption('debug_att_default');
     }
 

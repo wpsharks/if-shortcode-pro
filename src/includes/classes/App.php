@@ -116,5 +116,11 @@ class App extends SCoreClasses\App
             add_action('save_post_product', [$this->Utils->WooCommerce, 'onSaveProduct']);
             add_action('save_post_product_variation', [$this->Utils->WooCommerce, 'onSaveProductVariation']);
         }
+
+        // Menu page; i.e., settings.
+
+        if ($this->Wp->is_admin) {
+            add_action('admin_menu', [$this->Utils->MenuPage, 'onAdminMenu']);
+        }
     }
 }
