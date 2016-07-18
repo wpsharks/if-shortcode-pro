@@ -1,4 +1,4 @@
-## $v
+## v160718.59682
 
 - Adding options page with general settings.
 - Improving colored error output when `debug="true"`.

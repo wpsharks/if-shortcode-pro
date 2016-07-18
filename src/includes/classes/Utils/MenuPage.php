@@ -25,14 +25,14 @@ use function get_defined_vars as vars;
 /**
  * Menu page utils.
  *
- * @since 16xxxx Menu page utils.
+ * @since 160718.59682 Menu page utils.
  */
 class MenuPage extends SCoreClasses\SCore\Base\Core
 {
     /**
      * Adds menu pages.
      *
-     * @since 16xxxx Menu page utils.
+     * @since 160718.59682 Menu page utils.
      */
     public function onAdminMenu()
     {
