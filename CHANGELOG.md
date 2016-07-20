@@ -1,3 +1,7 @@
+## $v
+
+- Deepening WooCommerce integration. New attribute `current_user_can_download=""`.
+
 ## v160718.59682
 
 - Adding options page with general settings.

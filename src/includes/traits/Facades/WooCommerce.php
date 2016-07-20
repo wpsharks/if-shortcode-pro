@@ -31,4 +31,20 @@ trait WooCommerce
     {
         return $GLOBALS[static::class]->Utils->WooCommerce->productIdBySku(...$args);
     }
+
+    /**
+     * @since 160720 Initial release.
+     */
+    public static function wcCustomerBoughtProduct(...$args)
+    {
+        return $GLOBALS[static::class]->Utils->WooCommerce->customerBoughtProduct(...$args);
+    }
+
+    /**
+     * @since 160720 Initial release.
+     */
+    public static function wcCustomerCanDownload(...$args)
+    {
+        return $GLOBALS[static::class]->Utils->WooCommerce->customerCanDownload(...$args);
+    }
 }

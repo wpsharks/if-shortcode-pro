@@ -217,7 +217,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
      * @param string|null  $content   Shortcode content.
      * @param string       $shortcode Shortcode name.
      */
-    public function onShortcode($atts, $content = '', $shortcode = ''): string
+    public function onShortcode($atts = [], $content = '', $shortcode = ''): string
     {
         /*
          * Maybe initialize.
@@ -247,6 +247,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
             // WooCommerce customer-specific attributes.
             'current_user_is_paying_customer' => '', // `true|false`.
             'current_user_bought_product'     => '', // Product ID (or SKU) expression.
+            'current_user_can_download'       => '', // Product ID (or SKU) expression.
 
             // Attribute modifiers.
             '_for_blog' => '0', // A specific blog ID.
@@ -398,8 +399,19 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                  */
                 case 'current_user_bought_product':
                     if ($this->current_atts[$_att_key]) {
-                        $this->appendConditions($this->simpleExpr($_att_key, function ($sku) {
-                            return '('.(int) $this->Wp->is_wc_active.' && '.$this->current_user_id.' ? (bool) wc_customer_bought_product(\'\', '.$this->current_user_id.', '.a::class.'::wcProductIdBySku('.c::sQuote($sku).')) : false)';
+                        $this->appendConditions($this->simpleExpr($_att_key, function ($product_id_or_sku) {
+                            return '('.(int) $this->Wp->is_wc_active.' && '.$this->current_user_id.' ? '.a::class.'wcCustomerBoughtProduct('.$this->current_user_id.', '.c::sQuote($product_id_or_sku).') : false)';
+                        }));
+                    }
+                    break;
+
+                /*
+                 * `current_user_can_download="[expr]"`
+                 */
+                case 'current_user_can_download':
+                    if ($this->current_atts[$_att_key]) {
+                        $this->appendConditions($this->simpleExpr($_att_key, function ($product_id_or_sku) {
+                            return '('.(int) $this->Wp->is_wc_active.' && '.$this->current_user_id.' ? '.a::class.'wcCustomerCanDownload('.$this->current_user_id.', '.c::sQuote($product_id_or_sku).') : false)';
                         }));
                     }
                     break;

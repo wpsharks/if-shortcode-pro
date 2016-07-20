@@ -34,19 +34,82 @@ class WooCommerce extends SCoreClasses\SCore\Base\Core
      *
      * @since 160709.39379 WooCommerce utils.
      *
-     * @param string $product_sku Product SKU.
+     * @param string $product_id_or_sku Product ID or SKU.
      *
      * @return int Product ID by SKU.
      */
-    public function productIdBySku(string $product_sku): int
+    public function productIdBySku(string $product_id_or_sku): int
     {
-        if ((string) (int) $product_sku === $product_sku) {
-            // NOTE: Do not use all numeric SKUs.
-            return (int) $product_sku; // Assume ID.
+        $product_id = $product_sku = $product_id_or_sku;
+
+        if ((string) (int) $product_id === $product_id) {
+            return (int) $product_id; // Assume ID.
         } elseif (!is_array($by_sku = $this->productIdsBySku())) {
             return (int) wc_get_product_id_by_sku($product_sku);
         }
         return $by_sku[$product_sku] ?? 0;
+    }
+
+    /**
+     * Customer bought product?
+     *
+     * @since 160709.39379 WooCommerce utils.
+     *
+     * @param int|null $user_id           User ID.
+     * @param string   $product_id_or_sku Product ID or SKU.
+     *
+     * @return bool True if customer bought product.
+     */
+    public function customerBoughtProduct(int $user_id = null, string $product_id_or_sku): bool
+    {
+        $user_id = (int) ($user_id ?? get_current_user_id());
+
+        if (($can = &$this->cacheKey(__FUNCTION__, [$user_id, $product_id_or_sku])) !== null) {
+            return $can; // Cached this already.
+        }
+        if (($product_id = $this->productIdBySku($product_id_or_sku))) {
+            return $can = (bool) wc_customer_bought_product('', $user_id, $product_id);
+        }
+        return $can = false; // Defaults to a `false` value.
+    }
+
+    /**
+     * Customer can download?
+     *
+     * @since 160709.39379 WooCommerce utils.
+     *
+     * @param int|null $user_id           User ID.
+     * @param string   $product_id_or_sku Product ID or SKU.
+     *
+     * @return bool True if customer can download.
+     */
+    public function customerCanDownload(int $user_id = null, string $product_id_or_sku): bool
+    {
+        $user_id = (int) ($user_id ?? get_current_user_id());
+
+        if (($can = &$this->cacheKey(__FUNCTION__, [$user_id, $product_id_or_sku])) !== null) {
+            return $can; // Cached this already.
+        }
+        if (($product_id = $this->productIdBySku($product_id_or_sku))) {
+            $WpDb              = s::wpDb(); // DB object instance.
+            $local_ymd_his_now = date('Y-m-d H:i:s', s::utcToLocal(time()));
+            $permissions_table = $WpDb->prefix.'woocommerce_downloadable_product_permissions';
+
+            $sql = /* Build SQL query. */ '
+                SELECT `permissions`.`permission_id`
+                    FROM `'.esc_sql($permissions_table).'` AS `permissions`
+
+                WHERE
+                    `permissions`.`user_id` = %s
+                    AND `permissions`.`product_id` = %s
+                    AND (`permissions`.`access_expires` IS NULL OR `permissions`.`access_expires` = %s OR `permissions`.`access_expires` > %s)
+
+                LIMIT 1';
+            $sql = $WpDb->prepare($sql, $user_id, $product_id, '0000-00-00 00:00:00', $local_ymd_his_now);
+
+            return $can = (bool) $WpDb->get_var($sql);
+        }
+        return $can = false; // Defaults to a `false` value.
     }
 
     /**
