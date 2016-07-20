@@ -400,7 +400,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 case 'current_user_bought_product':
                     if ($this->current_atts[$_att_key]) {
                         $this->appendConditions($this->simpleExpr($_att_key, function ($product_id_or_sku) {
-                            return '('.(int) $this->Wp->is_wc_active.' && '.$this->current_user_id.' ? '.a::class.'\\wcCustomerBoughtProduct('.$this->current_user_id.', '.c::sQuote($product_id_or_sku).') : false)';
+                            return '('.(int) $this->Wp->is_wc_active.' && '.$this->current_user_id.' ? '.a::class.'::wcCustomerBoughtProduct('.$this->current_user_id.', '.c::sQuote($product_id_or_sku).') : false)';
                         }));
                     }
                     break;
@@ -411,7 +411,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 case 'current_user_can_download':
                     if ($this->current_atts[$_att_key]) {
                         $this->appendConditions($this->simpleExpr($_att_key, function ($product_id_or_sku) {
-                            return '('.(int) $this->Wp->is_wc_active.' && '.$this->current_user_id.' ? '.a::class.'\\wcCustomerCanDownload('.$this->current_user_id.', '.c::sQuote($product_id_or_sku).') : false)';
+                            return '('.(int) $this->Wp->is_wc_active.' && '.$this->current_user_id.' ? '.a::class.'::wcCustomerCanDownload('.$this->current_user_id.', '.c::sQuote($product_id_or_sku).') : false)';
                         }));
                     }
                     break;
