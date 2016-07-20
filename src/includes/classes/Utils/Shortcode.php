@@ -36,7 +36,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
      *
      * @param string
      */
-    public $name = '';
+    public $name;
 
     /**
      * `[else]` shortcode name.
@@ -45,133 +45,160 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
      *
      * @param string
      */
-    protected $else_name = '';
+    protected $else_name;
+
+    /**
+     * Tab size (in spaces).
+     *
+     * @since 16xxxx Refactor.
+     *
+     * @param int Tab size.
+     */
+    protected $tab_size;
 
     /**
      * Initialized?
      *
      * @since 160709.39379 Refactor.
      *
-     * @param bool
+     * @param bool|null
      */
-    protected $initialized = false;
+    protected $initialized;
 
     /**
      * Can `eval()`?
      *
      * @since 160709.39379 Refactor.
      *
-     * @param bool
+     * @param bool|null
      */
-    protected $can_eval = false;
+    protected $can_eval;
 
     /**
      * `php=""` attribute enabled?
      *
      * @since 160709.39379 Refactor.
      *
-     * @param bool
+     * @param bool|null
      */
-    protected $enable_php_att = false;
+    protected $enable_php_att;
 
     /**
      * `for_blog=""` attribute enabled?
      *
      * @since 160709.39379 Refactor.
      *
-     * @param bool
+     * @param bool|null
      */
-    protected $enable_for_blog_att = false;
+    protected $enable_for_blog_att;
 
     /**
      * Arbitrary attributes enabled?
      *
      * @since 160709.39379 Refactor.
      *
-     * @param bool
+     * @param bool|null
      */
-    protected $enable_arbitrary_atts = false;
+    protected $enable_arbitrary_atts;
 
     /**
      * Whitelisted arbitrary attributes.
      *
      * @since 160709.39379 Refactor.
      *
-     * @param array
+     * @param array|null
      */
-    protected $whitelisted_arbitrary_atts = [];
+    protected $whitelisted_arbitrary_atts;
+
+    /**
+     * Enable Jetpack markdown?
+     *
+     * @since 16xxxx Refactor.
+     *
+     * @param bool|null
+     */
+    protected $enable_jetpack_markdown;
+
+    /**
+     * Jetpack markdown class.
+     *
+     * @since 16xxxx Refactor.
+     *
+     * @param \WPCom_Markdown|null
+     */
+    protected $WPCom_Markdown;
 
     /**
      * Debug att default.
      *
      * @since 160709.39379 Refactor.
      *
-     * @param string
+     * @param string|null
      */
-    protected $debug_att_default = '';
+    protected $debug_att_default;
 
     /**
      * Current user ID.
      *
      * @since 160709.39379 Refactor.
      *
-     * @param int
+     * @param int|null
      */
-    protected $current_user_id = 0;
+    protected $current_user_id;
 
     /**
      * Current shortcode depth.
      *
      * @since 160709.39379 Refactor.
      *
-     * @param int
+     * @param int|null
      */
-    protected $current_depth = 0;
+    protected $current_depth;
 
     /**
      * Current shortcode.
      *
      * @since 160709.39379 Refactor.
      *
-     * @param string
+     * @param string|null
      */
-    protected $current_shortcode = '';
+    protected $current_shortcode;
 
     /**
      * Current raw attributes.
      *
      * @since 160709.39379 Refactor.
      *
-     * @param array
+     * @param array|null
      */
-    protected $current_raw_atts = [];
+    protected $current_raw_atts;
 
     /**
      * Current attributes.
      *
      * @since 160709.39379 Refactor.
      *
-     * @param array
+     * @param array|null
      */
-    protected $current_atts = [];
+    protected $current_atts;
 
     /**
      * Current conditions.
      *
      * @since 160709.39379 Refactor.
      *
-     * @param string
+     * @param string|null
      */
-    protected $current_conditions = '';
+    protected $current_conditions;
 
     /**
      * Current errors.
      *
      * @since 160709.39379 Refactor.
      *
-     * @param array
+     * @param array|null
      */
-    protected $current_errors = [];
+    protected $current_errors;
 
     /**
      * Class constructor.
@@ -186,6 +213,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
 
         $this->name      = s::applyFilters('name', 'if');
         $this->else_name = s::applyFilters('else_name', 'else');
+        $this->tab_size  = s::applyFilters('tab_size', 4);
     }
 
     /**
@@ -205,6 +233,8 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         $this->enable_for_blog_att        = (bool) s::getOption('enable_for_blog_att');
         $this->enable_arbitrary_atts      = (bool) s::getOption('enable_arbitrary_atts');
         $this->whitelisted_arbitrary_atts = $this->enable_arbitrary_atts ? preg_split('/[\s,]+/u', s::getOption('whitelisted_arbitrary_atts'), -1, PREG_SPLIT_NO_EMPTY) : [];
+        $this->enable_jetpack_markdown    = (bool) s::getOption('enable_jetpack_markdown') && class_exists('WPCom_Markdown');
+        $this->WPCom_Markdown             = $this->enable_jetpack_markdown ? WPCom_Markdown::get_instance() : null;
         $this->debug_att_default          = s::getOption('debug_att_default');
     }
 
@@ -284,6 +314,9 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         /*
          * Parse content into if/else conditions.
          */
+        if ($this->enable_jetpack_markdown && $this->WPCom_Markdown) {
+            $content = c::stripLeadingIndents($content);
+        }
         $else_tag = '['.str_repeat('_', $this->current_depth).$this->else_name.']';
 
         if (mb_strpos($content, $else_tag) !== false) {
@@ -291,7 +324,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
             $content_if                      = c::htmlTrim($content_if);
             $content_else                    = c::htmlTrim($content_else);
         } else {
-            $content_if   = c::htmlTrim($content);
+            $content_if   = c::htmlTrim($content); // No `[else]` tag.
             $content_else = ''; // Default (empty).
         }
 
@@ -458,7 +491,6 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         /*
          * Evaluate, if possible.
          */
-
         try { // We can catch problems in PHP 7+ via exception.
             if (!$this->current_errors && $this->current_conditions && $this->can_eval) {
                 $conditions_true = c::phpEval('return ('.$this->current_conditions.');');
@@ -511,11 +543,22 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
             }
             return ''; // Default behavior; fail silently with conditions forced to a false state.
         }
+
+        /*
+         * Maybe apply Jetpack markdown.
+         */
+        if ($this->enable_jetpack_markdown && $this->WPCom_Markdown) {
+            if ($conditions_true) { // Only transform what's needed below.
+                $content_if = $this->WPCom_Markdown->transform($content_if, ['unslash' => false]);
+            } else {
+                $content_else = $this->WPCom_Markdown->transform($content_else, ['unslash' => false]);
+            }
+        }
+
         /*
          * Return shortcode output (if no errors above).
          */
-        return $debug_verbose.// Verbose debug output (if enabled).
-               do_shortcode($conditions_true ? $content_if : $content_else);
+        return $debug_verbose.do_shortcode($conditions_true ? $content_if : $content_else);
     }
 
     /**

@@ -44,7 +44,7 @@ class MenuPage extends SCoreClasses\SCore\Base\Core
             'template_file' => 'menu-page/default.php',
 
             'tabs' => [
-                'default' => sprintf(__('%1$s Settings', 'wp-sharks-core'), esc_html($this->App->Config->©brand['©name'])),
+                'default' => sprintf(__('%1$s Settings', 'if-shortcode'), esc_html($this->App->Config->©brand['©name'])),
             ],
         ]);
     }

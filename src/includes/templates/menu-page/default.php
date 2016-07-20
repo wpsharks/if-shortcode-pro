@@ -81,6 +81,18 @@ $Form = $this->s::menuPageForm('§save-options');
         ]); ?>
 
         <?= $Form->selectRow([
+            'label' => __('Enable Jetpack Markdown?', 'if-shortcode'),
+            'tip'   => __('This allows [if]markdown[/if]; i.e., for Markdown to be used inside [if] conditionals.<hr />Only works if Jetpack Markdown is enabled.', 'if-shortcode'),
+
+            'name'    => 'enable_jetpack_markdown',
+            'value'   => s::getOption('enable_jetpack_markdown'),
+            'options' => [
+                '0' => __('No', 'if-shortcode'),
+                '1' => __('Yes', 'if-shortcode'),
+            ],
+        ]); ?>
+
+        <?= $Form->selectRow([
             'label' => __('<code>_debug=""</code> Default Value', 'if-shortcode'),
             'tip'   => __('When _debug="true" and there is an error in your conditional syntax, an error is displayed on the site to make you aware.<hr />When _debug="verbose", additional details are displayed to help you diagnose problems.<hr />This setting controls the default value for this attribute.', 'if-shortcode'),
 

@@ -77,12 +77,14 @@ class App extends SCoreClasses\App
                 'enable_for_blog_att',
                 'enable_arbitrary_atts',
                 'whitelisted_arbitrary_atts',
+                'enable_jetpack_markdown',
             ],
             '§default_options' => [
                 'enable_php_att'             => '0',
                 'enable_for_blog_att'        => '0',
                 'enable_arbitrary_atts'      => '0',
                 'whitelisted_arbitrary_atts' => '',
+                'enable_jetpack_markdown'    => class_exists('WPCom_Markdown') ? '1' : '0',
                 'debug_att_default'          => '1',
             ],
         ];

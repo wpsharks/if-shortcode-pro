@@ -1,3 +1,8 @@
+## $v
+
+- Adding support for Jetpack Markdown inside `[if][/if]` conditionals.
+- Bumping minimum required WP Sharks Core to v160720.50843.
+
 ## v160720.38716
 
 - Updating to latest release of WP Sharks Core.
@@ -5,6 +10,7 @@
 - Fixed bug that was causing an `E_NOTICE` level warning about `$limit`.
 - Fixed bug causing a PHP warning in some scenarios related to `s::setTransient()`.
 - Fixed bug that was causing `current_user_can_download=""` to fail when checking for a download sold by a product variation.
+-
 
 ## v160720.23954
 
