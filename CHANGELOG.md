@@ -1,3 +1,7 @@
+## $v
+
+- Updating to latest release of WP Sharks Core.
+
 ## v160720.23954
 
 - Deepening WooCommerce integration. New attribute `current_user_can_download=""`.

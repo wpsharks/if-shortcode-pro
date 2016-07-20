@@ -38,7 +38,7 @@ class MenuPage extends SCoreClasses\SCore\Base\Core
     {
         s::addMenuPageItem([
             'auto_prefix'   => false,
-            'parent_slug'   => 'options-general.php',
+            'parent_page'   => 'options-general.php',
             'page_title'    => $this->App->Config->©brand['©name'],
             'menu_title'    => $this->App->Config->©brand['©name'],
             'template_file' => 'menu-page/default.php',
