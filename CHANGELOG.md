@@ -1,4 +1,4 @@
-## $v
+## [coming soon]
 
 - Adding support for Jetpack Markdown inside `[if][/if]` conditionals.
 - Bumping minimum required WP Sharks Core to v160720.50843.
