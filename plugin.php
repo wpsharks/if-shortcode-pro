@@ -4,7 +4,7 @@
  *
  * @wp-plugin
  *
- * Version: 160720.38608
+ * Version: 160720.38716
  * Text Domain: if-shortcode
  * Plugin Name: [if] Shortcode Pro
  *
