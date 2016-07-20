@@ -160,7 +160,7 @@ class WooCommerce extends SCoreClasses\SCore\Base\Core
                 $by_sku[(string) $_result->sku] = (int) $_result->ID;
             } // unset($_result); // Housekeeping.
         }
-        s::setTransient($transient_key, $by_sku);
+        s::setTransient($transient_key, $by_sku, DAY_IN_SECONDS);
 
         return $by_sku; // Keyed by SKU now.
     }
