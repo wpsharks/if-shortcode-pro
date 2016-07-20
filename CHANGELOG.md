@@ -1,4 +1,4 @@
-## $v
+## v160720.31704
 
 - Updating to latest release of WP Sharks Core.
 
