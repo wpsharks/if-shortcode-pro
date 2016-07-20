@@ -1,6 +1,8 @@
-## v160720.23552
+## $v
 
 - Deepening WooCommerce integration. New attribute `current_user_can_download=""`.
+- Updating inline documentation. References to `debug=""` should be `_debug=""`.
+- Updating inline documentation. References to `for_blog=""` should be `_for_blog=""`.
 
 ## v160718.59682
 

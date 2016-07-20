@@ -32,7 +32,7 @@ $Form = $this->s::menuPageForm('§save-options');
 
         <?php if ($this->Wp->is_multisite) : ?>
             <?= $Form->selectRow([
-                'label' => __('Enable Multisite <code>for_blog=""</code> Attribute?', 'if-shortcode'),
+                'label' => __('Enable Multisite <code>_for_blog=""</code> Attribute?', 'if-shortcode'),
                 'tip'   => __('Allows cross-blog conditionals when used together with current_user_can="".', 'if-shortcode'),
 
                 'name'    => 'enable_for_blog_att',
@@ -81,8 +81,8 @@ $Form = $this->s::menuPageForm('§save-options');
         ]); ?>
 
         <?= $Form->selectRow([
-            'label' => __('<code>debug=""</code> Default Value', 'if-shortcode'),
-            'tip'   => __('When debug="true" and there is an error in your conditional syntax, an error is displayed on the site to make you aware.<hr />When debug="verbose", additional details are displayed to help you diagnose problems.<hr />This setting controls the default value for this attribute.', 'if-shortcode'),
+            'label' => __('<code>_debug=""</code> Default Value', 'if-shortcode'),
+            'tip'   => __('When _debug="true" and there is an error in your conditional syntax, an error is displayed on the site to make you aware.<hr />When _debug="verbose", additional details are displayed to help you diagnose problems.<hr />This setting controls the default value for this attribute.', 'if-shortcode'),
 
             'name'    => 'debug_att_default',
             'value'   => s::getOption('debug_att_default'),
