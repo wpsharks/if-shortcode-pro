@@ -143,7 +143,7 @@ class WooCommerce extends SCoreClasses\SCore\Base\Core
                 AND `posts`.`post_type` IN(\'product\', \'product_variation\')
                 AND `postmeta`.`meta_key` = \'_sku\' AND `postmeta`.`meta_value` != \'\'
 
-            LIMIT '.($upper_limit = (int) s::applyFilters('woocommerce_product_ids_by_sku_limit', 2500));
+            LIMIT '.($limit = (int) s::applyFilters('woocommerce_product_ids_by_sku_limit', 2500));
         /*
          * NOTE: A warning should be given to site owners.
          * If you have more than 2500 SKUs, use IDs instead of SKUs.

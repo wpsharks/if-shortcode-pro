@@ -2,6 +2,7 @@
 
 - Updating to latest release of WP Sharks Core.
 - Fixed bug in `current_user_can_download=""` and `current_user_bought_product=""` attributes that triggering syntax errors in some rare scenarios.
+- Fixed bug that was causing an `E_NOTICE` level warning about `$limit`.
 
 ## v160720.23954
 
