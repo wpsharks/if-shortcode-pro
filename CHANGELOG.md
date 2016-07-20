@@ -1,6 +1,7 @@
 ## v160720.31704
 
 - Updating to latest release of WP Sharks Core.
+- Fixed bug in `current_user_can_download=""` and `current_user_bought_product=""` attributes that triggering syntax errors in some rare scenarios.
 
 ## v160720.23954
 
