@@ -37,6 +37,9 @@ class WooCommerce extends SCoreClasses\SCore\Base\Core
      * @param string $product_id_or_sku Product ID or SKU.
      *
      * @return int Product ID by SKU.
+     *
+     * @NOTE Product variations don't inherit an SKU from their parent.
+     * Don't expect this to deal with any parent/child relationships whatsoever.
      */
     public function productIdBySku(string $product_id_or_sku): int
     {
@@ -59,6 +62,15 @@ class WooCommerce extends SCoreClasses\SCore\Base\Core
      * @param string   $product_id_or_sku Product ID or SKU.
      *
      * @return bool True if customer bought product.
+     *
+     * @NOTE This deals with parent/child relationships automatically.
+     * Checking for a product by parent SKU returns true if any variation was purchased.
+     * However, if the SKU is variation-specific, this only returns true if the variation was purchased.
+     *
+     * The WC function `wc_customer_bought_product()` stores and searches
+     * for either meta field in the DB. One of: `_product_id` or `_variation_id`.
+     * The order item meta table stores the parent `_product_id` when a variation is purchased.
+     * That's how this is able to work as intended; i.e., an excellent design choice on the part of WC.
      */
     public function customerBoughtProduct(int $user_id = null, string $product_id_or_sku = ''): bool
     {
@@ -67,7 +79,7 @@ class WooCommerce extends SCoreClasses\SCore\Base\Core
         if (($can = &$this->cacheKey(__FUNCTION__, [$user_id, $product_id_or_sku])) !== null) {
             return $can; // Cached this already.
         }
-        if (($product_id = $this->productIdBySku($product_id_or_sku))) {
+        if ($user_id && ($product_id = $this->productIdBySku($product_id_or_sku))) {
             return $can = (bool) wc_customer_bought_product('', $user_id, $product_id);
         }
         return $can = false; // Defaults to a `false` value.
@@ -82,6 +94,10 @@ class WooCommerce extends SCoreClasses\SCore\Base\Core
      * @param string   $product_id_or_sku Product ID or SKU.
      *
      * @return bool True if customer can download.
+     *
+     * @NOTE This deals with parent/child relationships automatically.
+     * Checking for a product by parent SKU returns true if any variation provides download access.
+     * However, if the SKU is variation-specific, this only returns true if the variation provides access.
      */
     public function customerCanDownload(int $user_id = null, string $product_id_or_sku = ''): bool
     {
@@ -90,22 +106,27 @@ class WooCommerce extends SCoreClasses\SCore\Base\Core
         if (($can = &$this->cacheKey(__FUNCTION__, [$user_id, $product_id_or_sku])) !== null) {
             return $can; // Cached this already.
         }
-        if (($product_id = $this->productIdBySku($product_id_or_sku))) {
+        if ($user_id && ($product_id = $this->productIdBySku($product_id_or_sku))) {
             $WpDb              = s::wpDb(); // DB object instance.
             $local_ymd_his_now = date('Y-m-d H:i:s', s::utcToLocal(time()));
             $permissions_table = $WpDb->prefix.'woocommerce_downloadable_product_permissions';
 
+            $sub_query = /* For parent product IDs. */ '
+                SELECT `ID` FROM `'.esc_sql($WpDb->posts).'`
+                    WHERE `post_parent` = %s AND `post_type` = \'product_variation\'
+            ';
             $sql = /* Build SQL query. */ '
                 SELECT `permissions`.`permission_id`
                     FROM `'.esc_sql($permissions_table).'` AS `permissions`
 
                 WHERE
                     `permissions`.`user_id` = %s
-                    AND `permissions`.`product_id` = %s
+                    AND (`permissions`.`product_id` = %s OR `permissions`.`product_id` IN('.$sub_query.'))
+                    AND (`permissions`.`downloads_remaining` > 0 OR `permissions`.`downloads_remaining` = \'\')
                     AND (`permissions`.`access_expires` IS NULL OR `permissions`.`access_expires` = %s OR `permissions`.`access_expires` > %s)
 
                 LIMIT 1';
-            $sql = $WpDb->prepare($sql, $user_id, $product_id, '0000-00-00 00:00:00', $local_ymd_his_now);
+            $sql = $WpDb->prepare($sql, $user_id, $product_id, $product_id, '0000-00-00 00:00:00', $local_ymd_his_now);
 
             return $can = (bool) $WpDb->get_var($sql);
         }
@@ -120,6 +141,9 @@ class WooCommerce extends SCoreClasses\SCore\Base\Core
      * @return array|null Product IDs by SKU, else `null` if there are too many SKUs.
      *                    If the default limit 2500 is exceeded, this utility is simply not capable of working.
      *                    Instead, use `wc_get_product_id_by_sku()`. Or, don't use SKUs, use product IDs.
+     *
+     * @NOTE Product variations don't inherit an SKU from their parent.
+     * Don't expect this to deal with any parent/child relationships whatsoever.
      */
     public function productIdsBySku()
     {
