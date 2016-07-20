@@ -234,7 +234,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         $this->enable_arbitrary_atts      = (bool) s::getOption('enable_arbitrary_atts');
         $this->whitelisted_arbitrary_atts = $this->enable_arbitrary_atts ? preg_split('/[\s,]+/u', s::getOption('whitelisted_arbitrary_atts'), -1, PREG_SPLIT_NO_EMPTY) : [];
         $this->enable_jetpack_markdown    = (bool) s::getOption('enable_jetpack_markdown') && class_exists('WPCom_Markdown');
-        $this->WPCom_Markdown             = $this->enable_jetpack_markdown ? WPCom_Markdown::get_instance() : null;
+        $this->WPCom_Markdown             = $this->enable_jetpack_markdown ? \WPCom_Markdown::get_instance() : null;
         $this->debug_att_default          = s::getOption('debug_att_default');
     }
 
