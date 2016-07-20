@@ -1,4 +1,4 @@
-## $v
+## v160720.23552
 
 - Deepening WooCommerce integration. New attribute `current_user_can_download=""`.
 

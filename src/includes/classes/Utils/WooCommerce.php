@@ -60,7 +60,7 @@ class WooCommerce extends SCoreClasses\SCore\Base\Core
      *
      * @return bool True if customer bought product.
      */
-    public function customerBoughtProduct(int $user_id = null, string $product_id_or_sku): bool
+    public function customerBoughtProduct(int $user_id = null, string $product_id_or_sku = ''): bool
     {
         $user_id = (int) ($user_id ?? get_current_user_id());
 
@@ -83,7 +83,7 @@ class WooCommerce extends SCoreClasses\SCore\Base\Core
      *
      * @return bool True if customer can download.
      */
-    public function customerCanDownload(int $user_id = null, string $product_id_or_sku): bool
+    public function customerCanDownload(int $user_id = null, string $product_id_or_sku = ''): bool
     {
         $user_id = (int) ($user_id ?? get_current_user_id());
 
