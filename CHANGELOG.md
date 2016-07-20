@@ -2,6 +2,8 @@
 
 - Adding support for Jetpack Markdown inside `[if][/if]` conditionals.
 - Bumping minimum required WP Sharks Core to v160720.50843.
+- Now applying `the_content` filter recursively, to content inside conditionals.
+- Integrating a filter backup-state handler to avoid problems with inner content filters.
 
 ## v160720.38716
 

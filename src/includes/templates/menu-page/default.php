@@ -99,9 +99,8 @@ $Form = $this->s::menuPageForm('§save-options');
             'name'    => 'debug_att_default',
             'value'   => s::getOption('debug_att_default'),
             'options' => [
-                '0'       => __('false', 'if-shortcode'),
-                '1'       => __('true', 'if-shortcode'),
-                'verbose' => __('verbose', 'if-shortcode'),
+                '0' => __('false', 'if-shortcode'),
+                '1' => __('true', 'if-shortcode'),
             ],
         ]); ?>
 

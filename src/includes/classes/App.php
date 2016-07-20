@@ -36,7 +36,7 @@ class App extends SCoreClasses\App
      *
      * @type string Version.
      */
-    const VERSION = '160720.56127'; //v//
+    const VERSION = '160720.69971'; //v//
 
     /**
      * Constructor.
@@ -47,6 +47,8 @@ class App extends SCoreClasses\App
      */
     public function __construct(array $instance = [])
     {
+        $Core = $GLOBALS[SCoreClasses\App::class];
+
         $instance_base = [
             '©di' => [
                 '©default_rule' => [
@@ -84,7 +86,7 @@ class App extends SCoreClasses\App
                 'enable_for_blog_att'        => '0',
                 'enable_arbitrary_atts'      => '0',
                 'whitelisted_arbitrary_atts' => '',
-                'enable_jetpack_markdown'    => class_exists('WPCom_Markdown') ? '1' : '0',
+                'enable_jetpack_markdown'    => $Core->Wp->is_jetpack_active ? '1' : '0',
                 'debug_att_default'          => '1',
             ],
         ];
@@ -114,7 +116,7 @@ class App extends SCoreClasses\App
 
         // WooCommerce-specific hooks & filters.
 
-        if (defined('WC_VERSION')) {
+        if ($this->Wp->is_woocommerce_active) {
             add_action('save_post_product', [$this->Utils->WooCommerce, 'onSaveProduct']);
             add_action('save_post_product_variation', [$this->Utils->WooCommerce, 'onSaveProductVariation']);
         }

@@ -57,6 +57,15 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     protected $tab_size;
 
     /**
+     * Currently parsing?
+     *
+     * @since 16xxxx Refactor.
+     *
+     * @param bool
+     */
+    protected $is_parsing;
+
+    /**
      * Initialized?
      *
      * @since 160709.39379 Refactor.
@@ -118,15 +127,6 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
      * @param bool|null
      */
     protected $enable_jetpack_markdown;
-
-    /**
-     * Jetpack markdown class.
-     *
-     * @since 16xxxx Refactor.
-     *
-     * @param \WPCom_Markdown|null
-     */
-    protected $WPCom_Markdown;
 
     /**
      * Debug att default.
@@ -211,9 +211,10 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     {
         parent::__construct($App);
 
-        $this->name      = s::applyFilters('name', 'if');
-        $this->else_name = s::applyFilters('else_name', 'else');
-        $this->tab_size  = s::applyFilters('tab_size', 4);
+        $this->name       = s::applyFilters('name', 'if');
+        $this->else_name  = s::applyFilters('else_name', 'else');
+        $this->tab_size   = s::applyFilters('tab_size', 4);
+        $this->is_parsing = false; // Initialize.
     }
 
     /**
@@ -233,8 +234,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         $this->enable_for_blog_att        = (bool) s::getOption('enable_for_blog_att');
         $this->enable_arbitrary_atts      = (bool) s::getOption('enable_arbitrary_atts');
         $this->whitelisted_arbitrary_atts = $this->enable_arbitrary_atts ? preg_split('/[\s,]+/u', s::getOption('whitelisted_arbitrary_atts'), -1, PREG_SPLIT_NO_EMPTY) : [];
-        $this->enable_jetpack_markdown    = (bool) s::getOption('enable_jetpack_markdown') && class_exists('WPCom_Markdown');
-        $this->WPCom_Markdown             = $this->enable_jetpack_markdown ? \WPCom_Markdown::get_instance() : null;
+        $this->enable_jetpack_markdown    = (bool) s::getOption('enable_jetpack_markdown') && s::jetpackCanMarkdown();
         $this->debug_att_default          = s::getOption('debug_att_default');
     }
 
@@ -288,7 +288,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
             // `1|on|yes|true|0|off|no|false` (or `verbose`).
         ];
         $raw_atts = $atts; // Copy.
-        $atts     = c::mbTrim(c::unescHtml($atts));
+        $atts     = c::unescHtml($atts);
         $atts     = array_merge($default_atts, $atts);
 
         $atts['_for_blog'] = (int) $atts['_for_blog'];
@@ -310,23 +310,6 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         $this->current_atts       = $atts;
         $this->current_conditions = '';
         $this->current_errors     = [];
-
-        /*
-         * Parse content into if/else conditions.
-         */
-        if ($this->enable_jetpack_markdown && $this->WPCom_Markdown) {
-            $content = c::stripLeadingIndents($content);
-        }
-        $else_tag = '['.str_repeat('_', $this->current_depth).$this->else_name.']';
-
-        if (mb_strpos($content, $else_tag) !== false) {
-            list($content_if, $content_else) = explode($else_tag, $content, 2);
-            $content_if                      = c::htmlTrim($content_if);
-            $content_else                    = c::htmlTrim($content_else);
-        } else {
-            $content_if   = c::htmlTrim($content); // No `[else]` tag.
-            $content_else = ''; // Default (empty).
-        }
 
         /*
          * Initial validations.
@@ -423,7 +406,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 case 'current_user_is_paying_customer':
                     if ($this->current_atts[$_att_key]) {
                         $_negating = $this->current_atts[$_att_key] === 'false' ? '!' : '';
-                        $this->appendConditions($_negating.'('.(int) $this->Wp->is_wc_active.' && '.$this->current_user_id.' ? (bool) get_user_meta('.$this->current_user_id.', \'paying_customer\', true) : false)');
+                        $this->appendConditions($_negating.'('.(int) $this->Wp->is_woocommerce_active.' && '.$this->current_user_id.' ? (bool) get_user_meta('.$this->current_user_id.', \'paying_customer\', true) : false)');
                     }
                     break;
 
@@ -433,7 +416,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 case 'current_user_bought_product':
                     if ($this->current_atts[$_att_key]) {
                         $this->appendConditions($this->simpleExpr($_att_key, function ($product_id_or_sku) {
-                            return '('.(int) $this->Wp->is_wc_active.' && '.$this->current_user_id.' ? '.a::class.'::wcCustomerBoughtProduct('.$this->current_user_id.', '.c::sQuote($product_id_or_sku).') : false)';
+                            return '('.(int) $this->Wp->is_woocommerce_active.' && '.$this->current_user_id.' ? '.a::class.'::wcCustomerBoughtProduct('.$this->current_user_id.', '.c::sQuote($product_id_or_sku).') : false)';
                         }));
                     }
                     break;
@@ -444,7 +427,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 case 'current_user_can_download':
                     if ($this->current_atts[$_att_key]) {
                         $this->appendConditions($this->simpleExpr($_att_key, function ($product_id_or_sku) {
-                            return '('.(int) $this->Wp->is_wc_active.' && '.$this->current_user_id.' ? '.a::class.'::wcCustomerCanDownload('.$this->current_user_id.', '.c::sQuote($product_id_or_sku).') : false)';
+                            return '('.(int) $this->Wp->is_woocommerce_active.' && '.$this->current_user_id.' ? '.a::class.'::wcCustomerCanDownload('.$this->current_user_id.', '.c::sQuote($product_id_or_sku).') : false)';
                         }));
                     }
                     break;
@@ -545,20 +528,69 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         }
 
         /*
-         * Maybe apply Jetpack markdown.
+         * Parse content into if/else.
          */
-        if ($this->enable_jetpack_markdown && $this->WPCom_Markdown) {
-            if ($conditions_true) { // Only transform what's needed below.
-                $content_if = $this->WPCom_Markdown->transform($content_if, ['unslash' => false]);
-            } else {
-                $content_else = $this->WPCom_Markdown->transform($content_else, ['unslash' => false]);
+        if ($this->enable_jetpack_markdown) {
+            // NOTE: This trims the HTML also.
+            $content = c::stripLeadingIndents($content, $this->tab_size);
+        } else {
+            $content = c::htmlTrim($content); // Trim only.
+        }
+        $else_tag = '['.str_repeat('_', $this->current_depth).$this->else_name.']';
+
+        if (mb_strpos($content, $else_tag) !== false) {
+            list($content_if, $content_else) = explode($else_tag, $content, 2);
+        } else {
+            $content_if   = $content; // No `[else]` tag.
+            $content_else = ''; // Default (empty).
+        }
+
+        /*
+         * Maybe Jetpack markdown.
+         */
+        if ($this->enable_jetpack_markdown) {
+            if ($conditions_true && $content_if) {
+                $content_if = s::jetpackMarkdown($content_if);
+            } elseif (!$conditions_true && $content_else) {
+                $content_else = s::jetpackMarkdown($content_else);
             }
         }
 
         /*
-         * Return shortcode output (if no errors above).
+         * Maybe save filter-state.
          */
-        return $debug_verbose.do_shortcode($conditions_true ? $content_if : $content_else);
+        $is_top_level      = false;
+        $wp_current_filter = $wp_current_filter_temp = null;
+
+        if (!$this->is_parsing) { // Top level?
+            $this->is_parsing       = true;
+            $is_top_level           = true;
+            $wp_current_filter      = &$GLOBALS['wp_filter'][current_filter()];
+            $wp_current_filter_temp = $wp_current_filter;
+        }
+
+        /*
+         * Apply inner content filter.
+         */
+        if ($conditions_true && $content_if) {
+            $content_if = apply_filters('the_content', $content_if);
+        } elseif (!$conditions_true && $content_else) {
+            $content_else = apply_filters('the_content', $content_else);
+        }
+
+        /*
+         * Maybe restore filter-state.
+         */
+        if ($is_top_level) { // Done w/ top-level?
+            $wp_current_filter = $wp_current_filter_temp;
+            $this->is_parsing  = false;
+        }
+
+        /*
+         * Return shortcode output.
+         */
+        $output        = do_shortcode($conditions_true ? $content_if : $content_else);
+        return $output = $debug_verbose.$output; // With possible debug info.
     }
 
     /**
