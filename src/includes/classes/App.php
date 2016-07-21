@@ -36,7 +36,7 @@ class App extends SCoreClasses\App
      *
      * @type string Version.
      */
-    const VERSION = '160720.69971'; //v//
+    const VERSION = '160721.51787'; //v//
 
     /**
      * Constructor.
@@ -79,15 +79,25 @@ class App extends SCoreClasses\App
                 'enable_for_blog_att',
                 'enable_arbitrary_atts',
                 'whitelisted_arbitrary_atts',
-                'enable_jetpack_markdown',
+                'content_filters',
             ],
             '§default_options' => [
-                'enable_php_att'             => '0',
-                'enable_for_blog_att'        => '0',
+                'enable_php_att'      => '0',
+                'enable_for_blog_att' => '0',
+
                 'enable_arbitrary_atts'      => '0',
                 'whitelisted_arbitrary_atts' => '',
-                'enable_jetpack_markdown'    => $Core->Wp->is_jetpack_active ? '1' : '0',
-                'debug_att_default'          => '1',
+
+                'content_filters' => [
+                    'wptexturize',
+                    'wpautop',
+                    'shortcode_unautop',
+                    'wp_make_content_images_responsive',
+                    'capital_P_dangit',
+                    'do_shortcode',
+                    'convert_smilies',
+                ],
+                'debug_att_default' => '1',
             ],
         ];
         parent::__construct($instance_base, $instance);
@@ -102,29 +112,85 @@ class App extends SCoreClasses\App
     {
         parent::onSetupOtherHooks();
 
-        // General shortcode-related hooks & filters.
+        # Menu page settings.
 
-        for ($_i = 0, $if_shortcode_name = $this->Utils->Shortcode->name, $if_shortcode_names = []; $_i < 5; ++$_i) {
-            add_shortcode($if_shortcode_names[] = str_repeat('_', $_i).$if_shortcode_name, [$this->Utils->Shortcode, 'onShortcode']);
-        } // unset($_i); // Housekeeping.
-
-        add_filter('no_texturize_shortcodes', function (array $shortcodes) use ($if_shortcode_names) {
-            return array_merge($shortcodes, $if_shortcode_names);
-        }); // See: <http://jas.xyz/24AusB7> for more about this filter.
-
-        add_filter('widget_text', 'do_shortcode'); // Enable shortcodes in widgets.
-
-        // WooCommerce-specific hooks & filters.
+        if ($this->Wp->is_admin) {
+            add_action('admin_menu', [$this->Utils->MenuPage, 'onAdminMenu']);
+        }
+        # WooCommerce-specific hooks & filters.
 
         if ($this->Wp->is_woocommerce_active) {
             add_action('save_post_product', [$this->Utils->WooCommerce, 'onSaveProduct']);
             add_action('save_post_product_variation', [$this->Utils->WooCommerce, 'onSaveProductVariation']);
         }
+        # Everything else on `template_redirect` (optimizing this plugin).
 
-        // Menu page; i.e., settings.
+        add_action('template_redirect', function () {
 
-        if ($this->Wp->is_admin) {
-            add_action('admin_menu', [$this->Utils->MenuPage, 'onAdminMenu']);
-        }
+            # General hooks & filters for the shortcode.
+
+            add_filter('widget_text', 'do_shortcode'); // Shortcodes in widgets.
+
+            for ($_i = 0, $tag_name = $this->Utils->Shortcode->tag_name, $tag_names = []; $_i < 5; ++$_i) {
+                add_shortcode($tag_names[] = str_repeat('_', $_i).$tag_name, [$this->Utils->Shortcode, 'onShortcode']);
+            } // unset($_i); // Housekeeping.
+
+            add_filter('no_texturize_shortcodes', function (array $shortcodes) use ($tag_names) {
+                return array_merge($shortcodes, $tag_names); // Merge `[if]` tag names.
+            }); // See: <http://jas.xyz/24AusB7> for more about this filter.
+
+            # Content-related hooks & filters.
+
+            add_filter('the_content', [$this->Utils->Content, 'onTheContentPreserveIfs'], -100);
+
+            // Restore `[if]` shortcodes 'after' content filters like `wpautop()` are done.
+            // And, must restore 'before' `do_shortcode()` runs @ default priority of `11`.
+            if (is_numeric($do_shortcode_priority = has_filter('the_content', 'do_shortcode'))) {
+                add_filter('the_content', [$this->Utils->Content, 'onTheContentRestoreIfs'], (string) ($do_shortcode_priority - .1));
+                // NOTE: This will normally translate to `(string)10.9`, which is what we'd like ideally.
+                // If WP core forces an integer, it becomes `10`, and that's OK too, in most cases.
+
+                // The trick is that an `(int)10` is the same priority as `wpautop()` and several others.
+                // We need to come 'after' those, but 'before' `do_shortcode()` at `11`. So `10.9` is better.
+
+                // If this ends up being `(int)10`, its fine, so long as this filter is added 'after' others.
+                // To help make this more likely, this entire setup runs on `template_redirect` (i.e., later than most).
+            } else {
+                add_filter('the_content', [$this->Utils->Content, 'onTheContentRestoreIfs'], '10.9');
+            }
+            # Content-related hooks & filters (inside shortcode).
+            // Each `[if]` content fragment is treated as a stand-alone doc.
+
+            $content_filters = s::getOption('content_filters');
+
+            if (in_array('jetpack-markdown', $content_filters, true) && s::jetpackCanMarkdown()) {
+                s::addFilter('content', c::class.'::stripLeadingIndents', -100);
+                s::addFilter('content', s::class.'::jetpackMarkdown', -100);
+            }
+            if (in_array('jetpack-latex', $content_filters, true) && s::jetpackCanLatex()) {
+                s::addFilter('content', 'latex_markup', 9);
+            }
+            if (in_array('wptexturize', $content_filters, true)) {
+                s::addFilter('content', 'wptexturize', 10);
+            }
+            if (in_array('wpautop', $content_filters, true)) {
+                s::addFilter('content', 'wpautop', 10);
+            }
+            if (in_array('shortcode_unautop', $content_filters, true)) {
+                s::addFilter('content', 'shortcode_unautop', 10);
+            }
+            if (in_array('wp_make_content_images_responsive', $content_filters, true)) {
+                s::addFilter('content', 'wp_make_content_images_responsive', 10);
+            }
+            if (in_array('capital_P_dangit', $content_filters, true)) {
+                s::addFilter('content', 'capital_P_dangit', 11);
+            }
+            if (in_array('do_shortcode', $content_filters, true)) {
+                s::addFilter('content', 'do_shortcode', 11);
+            }
+            if (in_array('convert_smilies', $content_filters, true)) {
+                s::addFilter('content', 'convert_smilies', 20);
+            }
+        }, 15); // See notes above about why this is also important for `the_content` filters.
     }
 }

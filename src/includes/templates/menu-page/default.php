@@ -46,7 +46,7 @@ $Form = $this->s::menuPageForm('§save-options');
 
         <?= $Form->selectRow([
             'label' => __('Enable Arbitrary Attributes?', 'if-shortcode'),
-            'tip'   => __('This allows any PHP function to automatically become a shortcode attribute.', 'if-shortcode'),
+            'tip'   => __('In addition to attributes that come with the [if] shortcoe already, this allows any PHP function to automatically become a shortcode attribute.', 'if-shortcode'),
 
             'name'    => 'enable_arbitrary_atts',
             'value'   => s::getOption('enable_arbitrary_atts'),
@@ -58,7 +58,7 @@ $Form = $this->s::menuPageForm('§save-options');
 
         <?= $Form->textareaRow([
             'label' => __('Arbitrary Attribute Whitelist', 'if-shortcode'),
-            'tip'   => __('If you enable Arbitrary attributes, you can make them more secure by providing a whitelist. So instead of allowing <em>any</em> PHP function to become an attribute, allow only those you that list here.<hr />Please separate them with a space, comma, or line break.', 'if-shortcode'),
+            'tip'   => __('If you enable Arbitrary Attributes, you can make them more secure by providing a whitelist. So instead of allowing <em>any</em> PHP function to become an attribute, allow only those you that list here.<hr />Please separate them with a space, comma, or line break.', 'if-shortcode'),
 
             'name'    => 'whitelisted_arbitrary_atts',
             'value'   => s::getOption('whitelisted_arbitrary_atts'),
@@ -81,20 +81,28 @@ $Form = $this->s::menuPageForm('§save-options');
         ]); ?>
 
         <?= $Form->selectRow([
-            'label' => __('Enable Jetpack Markdown?', 'if-shortcode'),
-            'tip'   => __('This allows [if]markdown[/if]; i.e., for Markdown to be used inside [if] conditionals.<hr />Only works if Jetpack Markdown is enabled.', 'if-shortcode'),
+            'label' => __('Content Filters', 'if-shortcode'),
+            'tip'   => __('This controls which built-in WordPress content filters are applied to content inside [if] shortcodes. Selecting all content filters is suggested.<hr />Use Ctrl key (or ⌘) to select multiple content filters.<hr />Note: <code>jetpack-markdown</code> is only possible if you have Jetpack installed with Markdown enabled. The same is true for <code>jetpack-latex</code>.', 'if-shortcode'),
 
-            'name'    => 'enable_jetpack_markdown',
-            'value'   => s::getOption('enable_jetpack_markdown'),
-            'options' => [
-                '0' => __('No', 'if-shortcode'),
-                '1' => __('Yes', 'if-shortcode'),
+            'name'     => 'content_filters',
+            'multiple' => true, // i.e., An array.
+            'value'    => s::getOption('content_filters'),
+            'options'  => [
+                'jetpack-markdown'                  => 'jetpack-markdown',
+                'jetpack-latex'                     => 'jetpack-latex',
+                'wptexturize'                       => 'wptexturize',
+                'wpautop'                           => 'wpautop',
+                'shortcode_unautop'                 => 'shortcode_unautop',
+                'wp_make_content_images_responsive' => 'wp_make_content_images_responsive',
+                'capital_P_dangit'                  => 'capital_P_dangit',
+                'do_shortcode'                      => 'do_shortcode',
+                'convert_smilies'                   => 'convert_smilies',
             ],
         ]); ?>
 
         <?= $Form->selectRow([
             'label' => __('<code>_debug=""</code> Default Value', 'if-shortcode'),
-            'tip'   => __('When _debug="true" and there is an error in your conditional syntax, an error is displayed on the site to make you aware.<hr />When _debug="verbose", additional details are displayed to help you diagnose problems.<hr />This setting controls the default value for this attribute.', 'if-shortcode'),
+            'tip'   => __('When _debug="true" and there is a problem with your syntax, an error is displayed on the site to make you aware.<hr />When _debug="verbose", additional details are displayed to help you diagnose problems.<hr />This setting controls the default value for this attribute.', 'if-shortcode'),
 
             'name'    => 'debug_att_default',
             'value'   => s::getOption('debug_att_default'),

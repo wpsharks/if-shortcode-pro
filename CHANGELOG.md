@@ -1,9 +1,11 @@
-## [coming soon]
+## $v
 
+- Making it possible to customize filters (via options page) that are applied to content inside `[if]` shortcodes.
 - Adding support for Jetpack Markdown inside `[if][/if]` conditionals.
 - Bumping minimum required WP Sharks Core to v160720.50843.
 - Now applying `the_content` filter recursively, to content inside conditionals.
 - Integrating a filter backup-state handler to avoid problems with inner content filters.
+- Moving many parts of this plugin to the `template_redirect` hook, as a way to further optimize it.
 
 ## v160720.38716
 
