@@ -25,14 +25,14 @@ use function get_defined_vars as vars;
 /**
  * Content utils.
  *
- * @since 16xxxx Content utils.
+ * @since 160721.59154 Content utils.
  */
 class Content extends SCoreClasses\SCore\Base\Core
 {
     /**
      * Tokenizers.
      *
-     * @since 16xxxx Content utils.
+     * @since 160721.59154 Content utils.
      *
      * @type CoreClasses\Core\Tokenizer[]|null
      */
@@ -41,7 +41,7 @@ class Content extends SCoreClasses\SCore\Base\Core
     /**
      * Preserve `[if][/if]`.
      *
-     * @since 16xxxx Content utils.
+     * @since 160721.59154 Content utils.
      *
      * @param string|scalar $content Content.
      *
@@ -70,7 +70,7 @@ class Content extends SCoreClasses\SCore\Base\Core
     /**
      * Restore `[if][/if]`.
      *
-     * @since 16xxxx Content utils.
+     * @since 160721.59154 Content utils.
      *
      * @param string|scalar $content Content.
      *
