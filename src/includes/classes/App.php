@@ -123,9 +123,9 @@ class App extends SCoreClasses\App
             add_action('save_post_product', [$this->Utils->WooCommerce, 'onSaveProduct']);
             add_action('save_post_product_variation', [$this->Utils->WooCommerce, 'onSaveProductVariation']);
         }
-        # Everything else on `template_redirect` (optimizing this plugin).
+        # Everything else on `wp_loaded` (late priority; optimizing this plugin).
 
-        add_action('template_redirect', function () {
+        add_action('wp_loaded', function () {
 
             # General hooks & filters for the shortcode.
 
@@ -154,7 +154,7 @@ class App extends SCoreClasses\App
                 // We need to come 'after' those, but 'before' `do_shortcode()` at `11`. So `10.9` is better.
 
                 // If this ends up being `(int)10`, its fine, so long as this filter is added 'after' others.
-                // To help make this more likely, this entire setup runs on `template_redirect` (i.e., later than most).
+                // To help make this more likely, this entire setup runs on `wp_loaded` (i.e., later than most).
             } else {
                 add_filter('the_content', [$this->Utils->Content, 'onTheContentRestoreIfs'], '10.9');
             }
@@ -191,6 +191,6 @@ class App extends SCoreClasses\App
             if (in_array('convert_smilies', $content_filters, true)) {
                 s::addFilter('content', 'convert_smilies', 20);
             }
-        }, 15); // See notes above about why this is also important for `the_content` filters.
+        }, 10000); // See notes above about why this is also important for `the_content` filters.
     }
 }
