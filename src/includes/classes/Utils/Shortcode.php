@@ -185,7 +185,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Inside a top-level shortcode?
      *
-     * @since 16xxxx Refactor.
+     * @since 160722.57445 Refactor.
      *
      * @param bool|null
      */
