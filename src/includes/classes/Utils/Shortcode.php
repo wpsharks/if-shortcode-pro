@@ -48,6 +48,15 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     protected $else_tag_name;
 
     /**
+     * Tag name as regex.
+     *
+     * @since 16xxxx Nested 'blocks'.
+     *
+     * @param string
+     */
+    protected $tag_name_regex_frag;
+
+    /**
      * Initialized?
      *
      * @since 160709.39379 Refactor.
@@ -184,8 +193,9 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     {
         parent::__construct($App);
 
-        $this->tag_name      = s::applyFilters('tag_name', 'if');
-        $this->else_tag_name = s::applyFilters('else_tag_name', 'else');
+        $this->tag_name            = s::applyFilters('tag_name', 'if');
+        $this->else_tag_name       = s::applyFilters('else_tag_name', 'else');
+        $this->tag_name_regex_frag = c::escRegex($this->tag_name);
     }
 
     /**
@@ -524,8 +534,10 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
          * Apply shortcode content filters.
          */
         if ($conditions_true && $content_if) {
+            $content_if = $this->forceNestedIfBlocks($content_if);
             $content_if = s::applyFilters('content', $content_if);
         } elseif (!$conditions_true && $content_else) {
+            $content_else = $this->forceNestedIfBlocks($content_else);
             $content_else = s::applyFilters('content', $content_else);
         }
 
@@ -590,5 +602,37 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         } // unset($_att_key, $_att_value); // Housekeeping.
 
         return $shortcode .= ']';
+    }
+
+    /**
+     * Forces nested `[_if]` 'blocks'.
+     *
+     * @since 16xxxx Force nested `[_if]` 'blocks'.
+     *
+     * @param string $content Content to filter.
+     *
+     * @return $string Filtered content w/ nested `[_if]` 'blocks'.
+     */
+    protected function forceNestedIfBlocks(string $content): string
+    {
+        if (mb_strpos($content, '[_') === false) {
+            return $content; // Nothing to do.
+        }
+        // Each `[if]` content fragment is treated as a stand-alone doc.
+        // Nested `[_if]` tags must be separated by 2+ line breaks so `wpautop()`
+        // will create separate `<p>` blocks instead of using `<br />` tags.
+
+        // i.e., We want to avoid `<p>` tags inside `<p>` tags.
+        // e.g., `<p>if content<br /><p>nested _if content</p></p>`
+
+        // By forcing nested `[_if]` blocks we get:
+        // `<p>if content</p><p>nested _if content</p>`
+
+        // NOTE: This only impacts nested `[_if]` tags that are already on a line of their own.
+
+        $regex          = '/(['."\r\n".']+)(['."\t".' ]*\[_+'.$this->tag_name_regex_frag.'\s)/u';
+        return $content = preg_replace_callback($regex, function ($m) {
+            return isset($m[1][1]) ? $m[0] : "\n\n".$m[2];
+        }, $content);
     }
 }

@@ -123,9 +123,9 @@ class App extends SCoreClasses\App
             add_action('save_post_product', [$this->Utils->WooCommerce, 'onSaveProduct']);
             add_action('save_post_product_variation', [$this->Utils->WooCommerce, 'onSaveProductVariation']);
         }
-        # Everything else on `wp_loaded` (late priority; optimizing this plugin).
+        # Everything else on `init` w/ a late priority.
 
-        add_action('wp_loaded', function () {
+        add_action('init', function () {
 
             # General hooks & filters for the shortcode.
 
@@ -141,7 +141,7 @@ class App extends SCoreClasses\App
 
             # Content-related hooks & filters.
 
-            add_filter('the_content', [$this->Utils->Content, 'onTheContentPreserveIfs'], -100);
+            add_filter('the_content', [$this->Utils->Content, 'onTheContentPreserveIfs'], -1000);
 
             // Restore `[if]` shortcodes 'after' content filters like `wpautop()` are done.
             // And, must restore 'before' `do_shortcode()` runs @ default priority of `11`.
@@ -154,18 +154,17 @@ class App extends SCoreClasses\App
                 // We need to come 'after' those, but 'before' `do_shortcode()` at `11`. So `10.9` is better.
 
                 // If this ends up being `(int)10`, its fine, so long as this filter is added 'after' others.
-                // To help make this more likely, this entire setup runs on `wp_loaded` (i.e., later than most).
+                // To help make this more likely, this entire setup runs on `init` w/ a late priority.
             } else {
                 add_filter('the_content', [$this->Utils->Content, 'onTheContentRestoreIfs'], '10.9');
             }
-            # Content-related hooks & filters (inside shortcode).
-            // Each `[if]` content fragment is treated as a stand-alone doc.
+            # Content-related hooks & filters inside shortcode.
 
-            $content_filters = s::getOption('content_filters');
+            $content_filters = s::getOption('content_filters'); // By site owner.
 
             if (in_array('jetpack-markdown', $content_filters, true) && s::jetpackCanMarkdown()) {
-                s::addFilter('content', c::class.'::stripLeadingIndents', -100);
-                s::addFilter('content', s::class.'::jetpackMarkdown', -100);
+                s::addFilter('content', c::class.'::stripLeadingIndents', -1000);
+                s::addFilter('content', s::class.'::jetpackMarkdown', -998);
             }
             if (in_array('jetpack-latex', $content_filters, true) && s::jetpackCanLatex()) {
                 s::addFilter('content', 'latex_markup', 9);
@@ -191,6 +190,6 @@ class App extends SCoreClasses\App
             if (in_array('convert_smilies', $content_filters, true)) {
                 s::addFilter('content', 'convert_smilies', 20);
             }
-        }, 10000); // See notes above about why this is also important for `the_content` filters.
+        }, 100);
     }
 }
