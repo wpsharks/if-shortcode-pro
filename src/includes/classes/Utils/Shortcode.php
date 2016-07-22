@@ -50,7 +50,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Tag name as regex.
      *
-     * @since 16xxxx Nested 'blocks'.
+     * @since 160722.45266 Nested 'blocks'.
      *
      * @param string
      */
@@ -607,7 +607,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     /**
      * Forces nested `[_if]` 'blocks'.
      *
-     * @since 16xxxx Force nested `[_if]` 'blocks'.
+     * @since 160722.45266 Force nested `[_if]` 'blocks'.
      *
      * @param string $content Content to filter.
      *

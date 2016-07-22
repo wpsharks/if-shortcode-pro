@@ -1,4 +1,4 @@
-## $v
+## v160722.45266
 
 - Enhancing support for nested `[_if]` tags by improving compatibility with `wpautop()`.
 - Optimizing hook priorities for improved compatibility with a variety of other plugins for WordPress.
