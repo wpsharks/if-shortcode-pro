@@ -89,6 +89,8 @@ class App extends SCoreClasses\App
                 'whitelisted_arbitrary_atts' => '',
 
                 'content_filters' => [
+                    'jetpack-markdown',
+                    'jetpack-latex',
                     'wptexturize',
                     'wpautop',
                     'shortcode_unautop',
@@ -141,7 +143,7 @@ class App extends SCoreClasses\App
 
             # Content-related hooks & filters.
 
-            add_filter('the_content', [$this->Utils->Content, 'onTheContentPreserveIfs'], -1000);
+            add_filter('the_content', [$this->Utils->Content, 'onTheContentPreserveIfs'], -100);
 
             // Restore `[if]` shortcodes 'after' content filters like `wpautop()` are done.
             // And, must restore 'before' `do_shortcode()` runs @ default priority of `11`.
@@ -162,9 +164,11 @@ class App extends SCoreClasses\App
 
             $content_filters = s::getOption('content_filters'); // By site owner.
 
+            s::addFilter('content', [$this->Utils->Shortcode, 'onContentforceNestedIfBlocks'], -10000);
+
             if (in_array('jetpack-markdown', $content_filters, true) && s::jetpackCanMarkdown()) {
-                s::addFilter('content', c::class.'::stripLeadingIndents', -1000);
-                s::addFilter('content', s::class.'::jetpackMarkdown', -998);
+                s::addFilter('content', c::class.'::stripLeadingIndents', -10000);
+                s::addFilter('content', s::class.'::jetpackMarkdown', -10000);
             }
             if (in_array('jetpack-latex', $content_filters, true) && s::jetpackCanLatex()) {
                 s::addFilter('content', 'latex_markup', 9);
@@ -185,7 +189,7 @@ class App extends SCoreClasses\App
                 s::addFilter('content', 'capital_P_dangit', 11);
             }
             if (in_array('do_shortcode', $content_filters, true)) {
-                s::addFilter('content', 'do_shortcode', 11);
+                s::addFilter('content', [$this->Utils->Shortcode, 'onContentDoNestedShortcodes'], 11);
             }
             if (in_array('convert_smilies', $content_filters, true)) {
                 s::addFilter('content', 'convert_smilies', 20);

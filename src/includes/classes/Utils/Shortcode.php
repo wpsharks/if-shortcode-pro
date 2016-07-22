@@ -183,6 +183,15 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
     protected $current_errors;
 
     /**
+     * Inside a top-level shortcode?
+     *
+     * @since 16xxxx Refactor.
+     *
+     * @param bool|null
+     */
+    protected $in_top_level_shortcode;
+
+    /**
      * Class constructor.
      *
      * @since 160707.2545 Initial release.
@@ -534,10 +543,8 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
          * Apply shortcode content filters.
          */
         if ($conditions_true && $content_if) {
-            $content_if = $this->forceNestedIfBlocks($content_if);
             $content_if = s::applyFilters('content', $content_if);
         } elseif (!$conditions_true && $content_else) {
-            $content_else = $this->forceNestedIfBlocks($content_else);
             $content_else = s::applyFilters('content', $content_else);
         }
 
@@ -609,18 +616,20 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
      *
      * @since 160722.45266 Force nested `[_if]` 'blocks'.
      *
-     * @param string $content Content to filter.
+     * @param string|scalar $content Content to filter.
      *
-     * @return $string Filtered content w/ nested `[_if]` 'blocks'.
+     * @return $string Filtered content.
      */
-    protected function forceNestedIfBlocks(string $content): string
+    public function onContentforceNestedIfBlocks($content): string
     {
+        $content = (string) $content;
+
         if (mb_strpos($content, '[_') === false) {
             return $content; // Nothing to do.
         }
-        // Each `[if]` content fragment is treated as a stand-alone doc.
-        // Nested `[_if]` tags must be separated by 2+ line breaks so `wpautop()`
-        // will create separate `<p>` blocks instead of using `<br />` tags.
+        // Each `[if]` content fragment is treated as a stand-alone document.
+        // Nested `[_if]` tags must be separated by 2+ line breaks so `wpautop()` will create
+        // separate `<p>` blocks instead of using `<br />` tags.
 
         // i.e., We want to avoid `<p>` tags inside `<p>` tags.
         // e.g., `<p>if content<br /><p>nested _if content</p></p>`
@@ -628,11 +637,47 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         // By forcing nested `[_if]` blocks we get:
         // `<p>if content</p><p>nested _if content</p>`
 
-        // NOTE: This only impacts nested `[_if]` tags that are already on a line of their own.
+        // This only impacts nested `[_if]` tags that are already on a line of their own.
 
-        $regex          = '/(['."\r\n".']+)(['."\t".' ]*\[_+'.$this->tag_name_regex_frag.'\s)/u';
+        $regex          = '/(^|['."\n".']+)(['."\t".' ]*\[_+'.$this->tag_name_regex_frag.'\s)/u';
         return $content = preg_replace_callback($regex, function ($m) {
-            return isset($m[1][1]) ? $m[0] : "\n\n".$m[2];
-        }, $content);
+            return !isset($m[1][0]) || isset($m[1][1]) ? $m[0] : "\n\n".$m[2];
+        }, c::normalizeEols($content));
+    }
+
+    /**
+     * Do nested shortcodes.
+     *
+     * @since 160722.45266 Do nested shortcodes.
+     *
+     * @param string|scalar $content Content to filter.
+     *
+     * @return $string Filtered content.
+     */
+    public function onContentDoNestedShortcodes($content): string
+    {
+        // NOTE: This prevents filter corruption when doing nested shortcodes.
+        // See `do{} while()` here: <https://developer.wordpress.org/reference/functions/apply_filters/>
+        // In short, this prevents nested filters applied as a result of calling `do_shortcode()`,
+        // from altering the 'current' outer filter in the WordPress core `do{} while()` loop.
+
+        $content = (string) $content;
+
+        // Backup filter state.
+
+        $current_filter_by_ref       = &$GLOBALS['wp_filter'][current_filter()];
+        $current_outer_filter_backup = $current_filter_by_ref;
+
+        // Do nested shortcodes.
+
+        $content = do_shortcode($content);
+
+        // Restore filter state.
+
+        $current_filter_by_ref = $current_outer_filter_backup;
+
+        // Return filtered content now.
+
+        return $content;
     }
 }

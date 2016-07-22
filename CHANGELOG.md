@@ -1,3 +1,8 @@
+## $v
+
+- Bug fix. Improve filter-state backup handler.
+- Bug fix. Improve nested if block-level enforcement handler. Account for `^` in regex.
+
 ## v160722.45266
 
 - Enhancing support for nested `[_if]` tags by improving compatibility with `wpautop()`.

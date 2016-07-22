@@ -32,11 +32,34 @@ class Content extends SCoreClasses\SCore\Base\Core
     /**
      * Tokenizers.
      *
-     * @since 160721.59154 Content utils.
+     * @since 16xxxx Content utils.
      *
-     * @type CoreClasses\Core\Tokenizer[]|null
+     * @type array|null
      */
     protected $Tokenizers;
+
+    /**
+     * Shortcode tag name.
+     *
+     * @since 16xxxx Content utils.
+     *
+     * @param string
+     */
+    protected $tag_name;
+
+    /**
+     * Class constructor.
+     *
+     * @since 16xxxx Content utils.
+     *
+     * @param Classes\App $App Instance.
+     */
+    public function __construct(Classes\App $App)
+    {
+        parent::__construct($App);
+
+        $this->tag_name = a::shortcodeTagName();
+    }
 
     /**
      * Preserve `[if][/if]`.
@@ -49,22 +72,20 @@ class Content extends SCoreClasses\SCore\Base\Core
      */
     public function onTheContentPreserveIfs($content): string
     {
-        $content            = (string) $content;
-        $shortcode_tag_name = a::shortcodeTagName();
+        $content = (string) $content;
 
-        if (mb_strpos($content, '['.$shortcode_tag_name) === false) {
+        if (mb_strpos($content, '['.$this->tag_name) === false) {
+            $this->Tokenizers[] = null;
             return $content; // Nothing to do.
         }
         $Tokenizer = c::tokenize($content, ['shortcodes'], [
             'shortcode_unautop_compat'          => true,
-            'shortcode_tag_names'               => $shortcode_tag_name,
-            'shortcode_unautop_compat_tag_name' => $shortcode_tag_name,
+            'shortcode_tag_names'               => $this->tag_name,
+            'shortcode_unautop_compat_tag_name' => $this->tag_name,
         ]); // Tokenize only the top-level `[if]` shortcode tag name.
 
-        $this->Tokenizers[] = $Tokenizer;
-        $content            = $Tokenizer->getString();
-
-        return $content;
+        $this->Tokenizers[] = $Tokenizer; // End of stack.
+        return $content     = $Tokenizer->getString();
     }
 
     /**
@@ -80,13 +101,14 @@ class Content extends SCoreClasses\SCore\Base\Core
     {
         $content = (string) $content;
 
-        if (!$this->Tokenizers || !($Tokenizer = array_pop($this->Tokenizers))) {
+        if (!$this->Tokenizers) {
+            debug(0, c::issue(vars(), 'Missing tokenizers.'));
+            return $content; // Nothing to do.
+        } elseif (!($Tokenizer = array_pop($this->Tokenizers))) {
             return $content; // Nothing to do.
         } // Pops last tokenizer off the stack ↑ also.
 
         $Tokenizer->setString($content);
-        $content = $Tokenizer->restoreGetString();
-
-        return $content;
+        return $content = $Tokenizer->restoreGetString();
     }
 }
