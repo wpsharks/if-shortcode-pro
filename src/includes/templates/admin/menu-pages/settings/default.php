@@ -26,7 +26,7 @@ $Form = $this->s::menuPageForm('§save-options');
 ?>
 <?= $Form->openTag(); ?>
     <?= $Form->openTable(
-        __('General Shortcode Options', 'if-shortcode'),
+        __('General Options', 'if-shortcode'),
         sprintf(__('Browse the <a href="%1$s" target="_blank">knowledge base</a> to learn more about these options.', 'if-shortcode'), esc_url(s::brandUrl('/kb')))
     ); ?>
 
@@ -82,7 +82,7 @@ $Form = $this->s::menuPageForm('§save-options');
 
         <?= $Form->selectRow([
             'label' => __('Content Filters', 'if-shortcode'),
-            'tip'   => __('This controls which built-in WordPress content filters are applied to content inside [if] shortcodes. Selecting all content filters is suggested.<hr />Use Ctrl key (or ⌘) to select multiple content filters.<hr />Note: <code>jetpack-markdown</code> is only possible if you have Jetpack installed with Markdown enabled. The same is true for <code>jetpack-latex</code>.', 'if-shortcode'),
+            'tip'   => __('This controls which built-in WordPress content filters are applied to content inside [if] shortcodes. Selecting all content filters is suggested.<hr />Note: <code>jetpack-markdown</code> is only possible if you have Jetpack installed with Markdown enabled. The same is true for <code>jetpack-latex</code>.', 'if-shortcode'),
 
             'name'     => 'content_filters',
             'multiple' => true, // i.e., An array.
@@ -102,7 +102,7 @@ $Form = $this->s::menuPageForm('§save-options');
 
         <?= $Form->selectRow([
             'label' => __('<code>_debug=""</code> Default Value', 'if-shortcode'),
-            'tip'   => __('When _debug="true" and there is a problem with your syntax, an error is displayed on the site to make you aware.<hr />When _debug="verbose", additional details are displayed to help you diagnose problems.<hr />This setting controls the default value for this attribute.', 'if-shortcode'),
+            'tip'   => __('When <code>_debug="true"</code> and there is a problem with your syntax, an error is displayed on the site to make you aware.<hr /><code>_debug="verbose"</code> displays additional details to help you diagnose problems.<hr />This setting controls the default value for this attribute.', 'if-shortcode'),
 
             'name'    => 'debug_att_default',
             'value'   => s::getOption('debug_att_default'),

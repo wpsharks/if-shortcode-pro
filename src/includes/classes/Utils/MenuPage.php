@@ -41,10 +41,10 @@ class MenuPage extends SCoreClasses\SCore\Base\Core
             'parent_page'   => 'options-general.php',
             'page_title'    => $this->App->Config->©brand['©name'],
             'menu_title'    => $this->App->Config->©brand['©name'],
-            'template_file' => 'menu-page/default.php',
+            'template_file' => 'admin/menu-pages/settings/default.php',
 
             'tabs' => [
-                'default' => sprintf(__('%1$s Settings', 'if-shortcode'), esc_html($this->App->Config->©brand['©name'])),
+                'default' => sprintf(__('%1$s', 'if-shortcode'), esc_html($this->App->Config->©brand['©name'])),
             ],
         ]);
     }

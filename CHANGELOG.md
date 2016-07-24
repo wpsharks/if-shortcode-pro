@@ -1,3 +1,8 @@
+## $v
+
+- Enhancing menu page. Improving inline documentation.
+- Updating to the latest WP Sharks Core library.
+
 ## v160722.57445
 
 - Bug fix. Improve filter-state backup handler.
