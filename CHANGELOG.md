@@ -1,4 +1,4 @@
-## $v
+## v160724.1849
 
 - Enhancing menu page. Improving inline documentation.
 - Updating to the latest WP Sharks Core library.

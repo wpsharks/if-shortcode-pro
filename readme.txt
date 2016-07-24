@@ -1,6 +1,6 @@
 === [if] Shortcode Pro ===
 
-Stable tag: 160724.1791
+Stable tag: 160724.1849
 
 Tested up to: 4.5.3
 Requires at least: 4.5.3
