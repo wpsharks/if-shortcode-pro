@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the [if] Shortcode Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: [if] Shortcode Pro 160724.1849\n"
+"Project-Id-Version: [if] Shortcode Pro 160724.64997\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/if-shortcode-pro\n"
-"POT-Creation-Date: 2016-07-24 00:31:13+00:00\n"
+"POT-Creation-Date: 2016-07-24 18:03:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -14,6 +14,10 @@ msgstr ""
 
 #: src/includes/classes/Utils/MenuPage.php:47
 msgid "%1$s"
+msgstr ""
+
+#: src/includes/classes/Utils/MenuPage.php:49
+msgid "Restore Default Options"
 msgstr ""
 
 #: src/includes/classes/Utils/Shortcode.php:311

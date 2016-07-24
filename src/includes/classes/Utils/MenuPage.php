@@ -46,7 +46,7 @@ class MenuPage extends SCoreClasses\SCore\Base\Core
             'tabs' => [
                 'default' => sprintf(__('%1$s', 'if-shortcode'), esc_html($this->App->Config->©brand['©name'])),
                 'restore' => [
-                    'label' => __('Restore Default Options'),
+                    'label' => __('Restore Default Options', 'if-shortcode'),
                     'url'   => s::restoreDefaultOptionsUrl(), 'onclick' => 'confirm',
                 ],
             ],
