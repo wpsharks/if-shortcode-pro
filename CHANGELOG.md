@@ -1,3 +1,8 @@
+## $v
+
+- Enhancing options page.
+- Adding 'Restore Default Options' tab.
+
 ## v160724.1849
 
 - Enhancing menu page. Improving inline documentation.
