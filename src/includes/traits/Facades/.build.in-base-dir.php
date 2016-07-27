@@ -1,4 +1,10 @@
 <?php
+/**
+ * Facades.
+ *
+ * @author @jaswsinc
+ * @copyright WP Sharks™
+ */
 // @codingStandardsIgnoreFile
 
 declare (strict_types = 1);

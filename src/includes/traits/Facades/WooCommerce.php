@@ -1,4 +1,10 @@
 <?php
+/**
+ * WooCommerce.
+ *
+ * @author @jaswsinc
+ * @copyright WP Sharks™
+ */
 declare (strict_types = 1);
 namespace WebSharks\WpSharks\IfShortcode\Pro\Traits\Facades;
 
@@ -22,6 +28,11 @@ use WebSharks\Core\WpSharksCore\Traits as CoreTraits;
 use function assert as debug;
 use function get_defined_vars as vars;
 
+/**
+ * WooCommerce.
+ *
+ * @since 160524 Initial release.
+ */
 trait WooCommerce
 {
     /**
