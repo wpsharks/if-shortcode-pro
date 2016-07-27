@@ -37,6 +37,7 @@ trait Shortcode
 {
     /**
      * @since 160720 Shortcode utils.
+     * @see Classes\Utils\Shortcode::$tag_name
      */
     public static function shortcodeTagName()
     {
