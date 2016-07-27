@@ -1,4 +1,4 @@
-## $v
+## [coming soon]
 
 - Updating to latest WP Sharks Core.
 - Enhancing docBlocks throughout source code.
