@@ -1,3 +1,8 @@
+## $v
+
+- Updating to latest WP Sharks Core.
+- Enhancing docBlocks throughout source code.
+
 ## v160724.64997
 
 - Enhancing options page.
