@@ -1,7 +1,10 @@
-## [coming soon]
+## $v
 
+- Enhancing options page.
 - Updating to latest WP Sharks Core.
 - Enhancing docBlocks throughout source code.
+- A little refactoring to simplify menu pages.
+- Tested against WordPress v4.6 for compatibility.
 
 ## v160724.64997
 
