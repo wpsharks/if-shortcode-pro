@@ -3,6 +3,7 @@ project_title                               = [if] Shortcode Pro
 project_owner                               = websharks
 project_slug                                = if-shortcode-pro
 project_text_domain                         = if-shortcode
+project_slack_channel                       = if-shortcode
 
 project_namespace                           = WebSharks\\WpSharks\\IfShortcode\\Pro
 project_sub_namespace                       = WpSharksIfShortcodePro
