@@ -1,3 +1,7 @@
+## [coming soon]
+
+- New attribute: `request_var="{key|expr}"`.
+
 ## v160731.37774
 
 - Enhancing options page.

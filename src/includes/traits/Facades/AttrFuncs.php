@@ -1,12 +1,12 @@
 <?php
 /**
- * Facades.
+ * Attribute handlers.
  *
  * @author @jaswsinc
  * @copyright WP Sharks™
  */
 declare (strict_types = 1);
-namespace WebSharks\WpSharks\IfShortcode\Pro\Classes\Base;
+namespace WebSharks\WpSharks\IfShortcode\Pro\Traits\Facades;
 
 use WebSharks\WpSharks\IfShortcode\Pro\Classes;
 use WebSharks\WpSharks\IfShortcode\Pro\Interfaces;
@@ -29,13 +29,21 @@ use function assert as debug;
 use function get_defined_vars as vars;
 
 /**
- * Pseudo-static facades.
+ * Attribute handlers.
  *
- * @since 160707.2545 Initial release.
+ * @since $v Initial release.
  */
-abstract class Facades
+trait AttrFuncs
 {
-    use Traits\Facades\AttrFuncs;
-    use Traits\Facades\Shortcode;
-    use Traits\Facades\WooCommerce;
+    /**
+     * @since $v Initial release.
+     *
+     * @param mixed ...$args Variadic args to underlying utility.
+     *
+     * @see Classes\Utils\AttrFuncs::requestVar()
+     */
+    public static function requestVar(...$args)
+    {
+        return $GLOBALS[static::class]->Utils->AttrFuncs->requestVar(...$args);
+    }
 }
