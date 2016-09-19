@@ -1,6 +1,6 @@
-## [coming soon]
+## $v
 
-- New attribute: `request_var="{key|expr}"`.
+- New attribute: `request_var="{key|expr}"`. See [KB Article](https://wpsharks.com/kb-article/if-shortcode-pro/attributes#request_var).
 
 ## v160731.37774
 
