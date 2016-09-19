@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the [if] Shortcode Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: [if] Shortcode Pro 160902.60421\n"
+"Project-Id-Version: [if] Shortcode Pro 160919.18816\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/if-shortcode-pro\n"
-"POT-Creation-Date: 2016-09-02 16:47:05+00:00\n"
+"POT-Creation-Date: 2016-09-19 05:14:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,242 +12,92 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/MenuPage.php:50
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/MenuPage.php:50
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/MenuPage.php:50
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/MenuPage.php:50
-#: .~build/if-shortcode/src/includes/classes/Utils/MenuPage.php:50
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/MenuPage.php:50
 #: src/includes/classes/Utils/MenuPage.php:50
 msgid "%1$s"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/MenuPage.php:52
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/MenuPage.php:52
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/MenuPage.php:52
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/MenuPage.php:52
-#: .~build/if-shortcode/src/includes/classes/Utils/MenuPage.php:52
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/MenuPage.php:52
 #: src/includes/classes/Utils/MenuPage.php:52
 msgid "Restore Default Options"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:317
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:317
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:317
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/Shortcode.php:317
-#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:317
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:317
 #: src/includes/classes/Utils/Shortcode.php:319
 msgid "The `[%1$s]` shortcode requires the legitimate use of PHP `eval()`."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:318
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:318
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:318
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/Shortcode.php:318
-#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:318
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:318
 #: src/includes/classes/Utils/Shortcode.php:320
 msgid "Unfortunately, `eval()` is currently disabled by your PHP configuration. Therefore, the use of this shortcode will not be possible."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:319
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:319
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:319
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/Shortcode.php:319
-#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:319
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:319
 #: src/includes/classes/Utils/Shortcode.php:321
 msgid "To resolve this issue, please contact your server administrator and ask them to enable `eval()` in PHP."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:322
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:322
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:322
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/Shortcode.php:322
-#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:322
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:322
 #: src/includes/classes/Utils/Shortcode.php:324
 msgid "`[%1$s]` shortcode attribute `php=\"%2$s\"` is not enabled via plugin options."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:325
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:325
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:325
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/Shortcode.php:325
-#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:325
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:325
 #: src/includes/classes/Utils/Shortcode.php:327
 msgid "`[%1$s]` shortcode attribute `_for_blog=\"%2$s\"` is not enabled via plugin options."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:328
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:328
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:328
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/Shortcode.php:328
-#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:328
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:328
 #: src/includes/classes/Utils/Shortcode.php:330
 msgid "`[%1$s]` shortcode attribute names, by themselves, without `=\"\"`, are not supported at this time; because that particular format depends on functionality which may change in a future version of WP."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:446
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:446
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:446
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/Shortcode.php:446
-#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:446
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:446
 #: src/includes/classes/Utils/Shortcode.php:463
 msgid "`[%1$s]` shortcode attribute `%2$s`, by itself, without `=\"\"`, is not supported. Instead, use `%2$s=\"true\"`. Consult the shortcode documentation for assistance."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:451
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:451
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:451
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/Shortcode.php:451
-#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:451
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:451
 #: src/includes/classes/Utils/Shortcode.php:468
 msgid "Arbitrary `[%1$s]` shortcode attribute `%2$s=\"%3$s\"` is not enabled via plugin options."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:453
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:453
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:453
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/Shortcode.php:453
-#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:453
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:453
 #: src/includes/classes/Utils/Shortcode.php:470
 msgid "Arbitrary `[%1$s]` shortcode attribute `%2$s=\"%3$s\"` is not whitelisted via plugin options."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:455
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:455
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:455
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/Shortcode.php:455
-#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:455
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:455
 #: src/includes/classes/Utils/Shortcode.php:472
 msgid "Arbitrary `[%1$s]` shortcode attribute `%2$s=\"%3$s\"` contains invalid chars in the attribute name. Must match: `^[a-z][a-z0-9_]+[a-z0-9]$`."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:492
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:492
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:492
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/Shortcode.php:492
-#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:492
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:492
 #: src/includes/classes/Utils/Shortcode.php:509
 msgid "<code>[%1$s]</code> Shortcode Verbose"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:493
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:493
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:493
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/Shortcode.php:493
-#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:493
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:493
 #: src/includes/classes/Utils/Shortcode.php:510
 msgid "<code>[%1$s]</code> Shortcode Atts"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:494
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:494
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:494
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/Shortcode.php:494
-#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:494
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:494
 #: src/includes/classes/Utils/Shortcode.php:511
 msgid "<code>[%1$s]</code> Shortcode Conditions"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:512
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:512
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:512
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/Shortcode.php:512
-#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:512
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:512
 #: src/includes/classes/Utils/Shortcode.php:529
 msgid "<code>[%1$s]</code> Shortcode Error"
 msgid_plural "<code>[%1$s]</code> Shortcode Errors"
 msgstr[0] ""
 msgstr[1] ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:575
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/classes/Utils/Shortcode.php:575
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:575
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/classes/Utils/Shortcode.php:575
-#: .~build/if-shortcode/src/includes/classes/Utils/Shortcode.php:575
-#: .~build/if-shortcode-pro/src/includes/classes/Utils/Shortcode.php:575
 #: src/includes/classes/Utils/Shortcode.php:592
 msgid "`[%1$s]` shortcode attribute contains an invalid (or imbalanced) expression: `%2$s=\"%3$s\"`"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:35
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:35
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:35
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:35
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:35
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:35
 #: src/includes/templates/admin/menu-pages/options/default.php:35
 msgid "General Options"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:36
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:36
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:36
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:36
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:36
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:36
 #: src/includes/templates/admin/menu-pages/options/default.php:36
 msgid "Browse the <a href=\"%1$s\" target=\"_blank\">knowledge base</a> to learn more about these options."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:41
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:41
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:41
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:41
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:41
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:41
 #: src/includes/templates/admin/menu-pages/options/default.php:41
 msgid "Enable Multisite <code>_for_blog=\"\"</code> Attribute?"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:42
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:42
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:42
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:42
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:42
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:42
 #: src/includes/templates/admin/menu-pages/options/default.php:42
 msgid "Allows cross-blog conditionals when used together with current_user_can=\"\"."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:47
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:60
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:72
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:84
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:47
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:60
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:72
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:84
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:47
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:60
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:72
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:84
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:47
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:60
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:72
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:84
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:47
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:60
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:72
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:84
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:47
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:60
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:72
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:84
 #: src/includes/templates/admin/menu-pages/options/default.php:47
 #: src/includes/templates/admin/menu-pages/options/default.php:60
 #: src/includes/templates/admin/menu-pages/options/default.php:72
@@ -255,30 +105,6 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:48
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:61
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:73
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:85
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:48
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:61
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:73
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:85
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:48
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:61
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:73
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:85
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:48
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:61
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:73
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:85
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:48
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:61
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:73
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:85
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:48
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:61
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:73
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:85
 #: src/includes/templates/admin/menu-pages/options/default.php:48
 #: src/includes/templates/admin/menu-pages/options/default.php:61
 #: src/includes/templates/admin/menu-pages/options/default.php:73
@@ -286,122 +112,50 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:54
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:54
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:54
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:54
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:54
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:54
 #: src/includes/templates/admin/menu-pages/options/default.php:54
 msgid "Enable Arbitrary Attributes?"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:55
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:55
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:55
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:55
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:55
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:55
 #: src/includes/templates/admin/menu-pages/options/default.php:55
 msgid "In addition to attributes that come with the [if] shortcoe already, this allows any PHP function to automatically become a shortcode attribute."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:66
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:66
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:66
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:66
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:66
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:66
 #: src/includes/templates/admin/menu-pages/options/default.php:66
 msgid "Arbitrary Attribute Whitelist"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:67
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:67
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:67
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:67
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:67
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:67
 #: src/includes/templates/admin/menu-pages/options/default.php:67
 msgid "If you enable Arbitrary Attributes, you can make them more secure by providing a whitelist. So instead of allowing <em>any</em> PHP function to become an attribute, allow only those you that list here.<hr />Please separate them with a space, comma, or line break."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:78
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:78
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:78
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:78
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:78
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:78
 #: src/includes/templates/admin/menu-pages/options/default.php:78
 msgid "Enable <code>php=\"\"</code> Attribute?"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:79
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:79
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:79
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:79
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:79
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:79
 #: src/includes/templates/admin/menu-pages/options/default.php:79
 msgid "This allows raw PHP code to be used as an [if] condition."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:90
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:90
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:90
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:90
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:90
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:90
 #: src/includes/templates/admin/menu-pages/options/default.php:90
 msgid "Content Filters"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:91
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:91
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:91
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:91
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:91
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:91
 #: src/includes/templates/admin/menu-pages/options/default.php:91
 msgid "This controls which built-in WordPress content filters are applied to content inside [if] shortcodes. Selecting all content filters is suggested.<hr />Note: <code>jetpack-markdown</code> is only possible if you have Jetpack installed with Markdown enabled. The same is true for <code>jetpack-latex</code>."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:110
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:110
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:110
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:110
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:110
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:110
 #: src/includes/templates/admin/menu-pages/options/default.php:110
 msgid "<code>_debug=\"\"</code> Default Value"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:111
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:111
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:111
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:111
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:111
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:111
 #: src/includes/templates/admin/menu-pages/options/default.php:111
 msgid "When <code>_debug=\"true\"</code> and there is a problem with your syntax, an error is displayed on the site to make you aware.<hr /><code>_debug=\"verbose\"</code> displays additional details to help you diagnose problems.<hr />This setting controls the default value for this attribute."
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:116
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:116
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:116
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:116
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:116
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:116
 #: src/includes/templates/admin/menu-pages/options/default.php:116
 msgid "false"
 msgstr ""
 
-#: .~build/.~/pkg-dirs/for-zip-tgz/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:117
-#: .~build/if-shortcode/.~build/.~/pkg-dirs/for-zip-tgz/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:117
-#: .~build/if-shortcode/.~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:117
-#: .~build/if-shortcode/.~build/if-shortcode-repo/src/includes/templates/admin/menu-pages/options/default.php:117
-#: .~build/if-shortcode/src/includes/templates/admin/menu-pages/options/default.php:117
-#: .~build/if-shortcode-pro/src/includes/templates/admin/menu-pages/options/default.php:117
 #: src/includes/templates/admin/menu-pages/options/default.php:117
 msgid "true"
 msgstr ""

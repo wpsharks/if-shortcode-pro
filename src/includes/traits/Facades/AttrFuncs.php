@@ -31,12 +31,12 @@ use function get_defined_vars as vars;
 /**
  * Attribute handlers.
  *
- * @since $v Initial release.
+ * @since 160919.18816 Initial release.
  */
 trait AttrFuncs
 {
     /**
-     * @since $v Initial release.
+     * @since 160919.18816 Initial release.
      *
      * @param mixed ...$args Variadic args to underlying utility.
      *

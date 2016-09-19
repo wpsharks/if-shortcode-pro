@@ -31,14 +31,14 @@ use function get_defined_vars as vars;
 /**
  * Attr utils.
  *
- * @since $v Attr utils.
+ * @since 160919.18816 Attr utils.
  */
 class AttrFuncs extends SCoreClasses\SCore\Base\Core
 {
     /**
      * Request var.
      *
-     * @since $v Attr utils.
+     * @since 160919.18816 Attr utils.
      *
      * @param string $key Request key.
      *
