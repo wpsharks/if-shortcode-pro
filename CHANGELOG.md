@@ -1,3 +1,7 @@
+## [coming soon]
+
+- Removing unnecessary nested shortcode callback handler. Starting with WP 4.6 the new `WP_Hook` class addresses the underlying problem this was solving. See [Issue #1](https://github.com/websharks/if-shortcode-pro/issues/1).
+
 ## v160919.18816
 
 - New attribute: `request_var="{key|expr}"`. See [KB Article](https://wpsharks.com/kb-article/if-shortcode-pro/attributes#request_var).
