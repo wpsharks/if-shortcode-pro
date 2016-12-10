@@ -5,7 +5,7 @@
  * @author @jaswsinc
  * @copyright WP Sharks™
  */
-declare (strict_types = 1);
+declare(strict_types=1);
 namespace WebSharks\WpSharks\IfShortcode\Pro\Classes\Utils;
 
 use WebSharks\WpSharks\IfShortcode\Pro\Classes;
@@ -666,41 +666,5 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         return $content = preg_replace_callback($regex, function ($m) {
             return !isset($m[1][0]) || isset($m[1][1]) ? $m[0] : "\n\n".$m[2];
         }, c::normalizeEols($content));
-    }
-
-    /**
-     * Do nested shortcodes.
-     *
-     * @since 160722.45266 Do nested shortcodes.
-     *
-     * @param string|scalar $content Content to filter.
-     *
-     * @return $string Filtered content.
-     */
-    public function onContentDoNestedShortcodes($content): string
-    {
-        // NOTE: This prevents filter corruption when doing nested shortcodes.
-        // See `do{} while()` here: <https://developer.wordpress.org/reference/functions/apply_filters/>
-        // In short, this prevents nested filters applied as a result of calling `do_shortcode()`,
-        // from altering the 'current' outer filter in the WordPress core `do{} while()` loop.
-
-        $content = (string) $content;
-
-        // Backup filter state.
-
-        $current_filter_by_ref       = &$GLOBALS['wp_filter'][current_filter()];
-        $current_outer_filter_backup = $current_filter_by_ref;
-
-        // Do nested shortcodes.
-
-        $content = do_shortcode($content);
-
-        // Restore filter state.
-
-        $current_filter_by_ref = $current_outer_filter_backup;
-
-        // Return filtered content now.
-
-        return $content;
     }
 }

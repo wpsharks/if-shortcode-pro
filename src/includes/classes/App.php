@@ -5,7 +5,7 @@
  * @author @jaswsinc
  * @copyright WP Sharks™
  */
-declare (strict_types = 1);
+declare(strict_types=1);
 namespace WebSharks\WpSharks\IfShortcode\Pro\Classes;
 
 use WebSharks\WpSharks\IfShortcode\Pro\Classes;
@@ -40,7 +40,7 @@ class App extends SCoreClasses\App
      *
      * @since 160707.2545 Initial release.
      *
-     * @var string Version.
+     * @type string Version.
      */
     const VERSION = '160919.18816'; //v//
 
@@ -134,7 +134,6 @@ class App extends SCoreClasses\App
         # Everything else on `init` w/ a late priority.
 
         add_action('init', function () {
-
             # General hooks & filters for the shortcode.
 
             add_filter('widget_text', 'do_shortcode'); // Shortcodes in widgets.
@@ -195,7 +194,7 @@ class App extends SCoreClasses\App
                 s::addFilter('content', 'capital_P_dangit', 11);
             }
             if (in_array('do_shortcode', $content_filters, true)) {
-                s::addFilter('content', [$this->Utils->Shortcode, 'onContentDoNestedShortcodes'], 11);
+                s::addFilter('content', 'do_shortcode', 11);
             }
             if (in_array('convert_smilies', $content_filters, true)) {
                 s::addFilter('content', 'convert_smilies', 20);
