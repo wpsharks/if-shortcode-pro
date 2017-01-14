@@ -5,7 +5,7 @@
  * @author @jaswsinc
  * @copyright WP Sharks™
  */
-declare (strict_types = 1);
+declare(strict_types=1);
 namespace WebSharks\WpSharks\IfShortcode\Pro;
 
 use WebSharks\WpSharks\IfShortcode\Pro\Classes;
@@ -28,6 +28,9 @@ use WebSharks\Core\WpSharksCore\Traits as CoreTraits;
 use function assert as debug;
 use function get_defined_vars as vars;
 
+if (!defined('WPINC')) {
+    exit('Do NOT access this file directly.');
+}
 $Form = $this->s::menuPageForm('§save-options');
 ?>
 <?= $Form->openTag(); ?>
