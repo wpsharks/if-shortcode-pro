@@ -2,6 +2,7 @@
 
 - Bumping minimum required WordPress version to v4.6.
 - Removing unnecessary nested shortcode callback handler. Starting with WP 4.6 the new `WP_Hook` class addresses the underlying problem this was solving. See [Issue #1](https://github.com/websharks/if-shortcode-pro/issues/1).
+- Enhancing security be removing `basename(__FILE__)` from direct access notices.
 
 ## v160919.18816
 
