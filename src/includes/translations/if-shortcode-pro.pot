@@ -1,14 +1,14 @@
-# Copyright (C) 2016 [if] Shortcode Pro
+# Copyright (C) 2017 [if] Shortcode Pro
 # This file is distributed under the same license as the [if] Shortcode Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: [if] Shortcode Pro 160919.18816\n"
+"Project-Id-Version: [if] Shortcode Pro 170127.85613\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/if-shortcode-pro\n"
-"POT-Creation-Date: 2016-09-19 05:14:07+00:00\n"
+"POT-Creation-Date: 2017-01-27 23:49:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
@@ -82,81 +82,81 @@ msgstr[1] ""
 msgid "`[%1$s]` shortcode attribute contains an invalid (or imbalanced) expression: `%2$s=\"%3$s\"`"
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:35
+#: src/includes/templates/admin/menu-pages/options/default.php:38
 msgid "General Options"
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:36
+#: src/includes/templates/admin/menu-pages/options/default.php:39
 msgid "Browse the <a href=\"%1$s\" target=\"_blank\">knowledge base</a> to learn more about these options."
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:41
+#: src/includes/templates/admin/menu-pages/options/default.php:44
 msgid "Enable Multisite <code>_for_blog=\"\"</code> Attribute?"
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:42
+#: src/includes/templates/admin/menu-pages/options/default.php:45
 msgid "Allows cross-blog conditionals when used together with current_user_can=\"\"."
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:47
-#: src/includes/templates/admin/menu-pages/options/default.php:60
-#: src/includes/templates/admin/menu-pages/options/default.php:72
-#: src/includes/templates/admin/menu-pages/options/default.php:84
+#: src/includes/templates/admin/menu-pages/options/default.php:50
+#: src/includes/templates/admin/menu-pages/options/default.php:63
+#: src/includes/templates/admin/menu-pages/options/default.php:75
+#: src/includes/templates/admin/menu-pages/options/default.php:87
 msgid "No"
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:48
-#: src/includes/templates/admin/menu-pages/options/default.php:61
-#: src/includes/templates/admin/menu-pages/options/default.php:73
-#: src/includes/templates/admin/menu-pages/options/default.php:85
+#: src/includes/templates/admin/menu-pages/options/default.php:51
+#: src/includes/templates/admin/menu-pages/options/default.php:64
+#: src/includes/templates/admin/menu-pages/options/default.php:76
+#: src/includes/templates/admin/menu-pages/options/default.php:88
 msgid "Yes"
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:54
+#: src/includes/templates/admin/menu-pages/options/default.php:57
 msgid "Enable Arbitrary Attributes?"
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:55
+#: src/includes/templates/admin/menu-pages/options/default.php:58
 msgid "In addition to attributes that come with the [if] shortcoe already, this allows any PHP function to automatically become a shortcode attribute."
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:66
+#: src/includes/templates/admin/menu-pages/options/default.php:69
 msgid "Arbitrary Attribute Whitelist"
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:67
+#: src/includes/templates/admin/menu-pages/options/default.php:70
 msgid "If you enable Arbitrary Attributes, you can make them more secure by providing a whitelist. So instead of allowing <em>any</em> PHP function to become an attribute, allow only those you that list here.<hr />Please separate them with a space, comma, or line break."
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:78
+#: src/includes/templates/admin/menu-pages/options/default.php:81
 msgid "Enable <code>php=\"\"</code> Attribute?"
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:79
+#: src/includes/templates/admin/menu-pages/options/default.php:82
 msgid "This allows raw PHP code to be used as an [if] condition."
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:90
+#: src/includes/templates/admin/menu-pages/options/default.php:93
 msgid "Content Filters"
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:91
-msgid "This controls which built-in WordPress content filters are applied to content inside [if] shortcodes. Selecting all content filters is suggested.<hr />Note: <code>jetpack-markdown</code> is only possible if you have Jetpack installed with Markdown enabled. The same is true for <code>jetpack-latex</code>."
+#: src/includes/templates/admin/menu-pages/options/default.php:94
+msgid "This controls which built-in WordPress content filters are applied to content inside [if] shortcodes. Selecting all content filters is suggested.<hr />Note: <code>wp-markdown-extra</code> is only possible if you have WP Markdown Extra installed.<hr /><code>jetpack-markdown</code> is only possible if you have Jetpack installed with Markdown enabled. The same is true for <code>jetpack-latex</code>."
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:110
+#: src/includes/templates/admin/menu-pages/options/default.php:114
 msgid "<code>_debug=\"\"</code> Default Value"
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:111
+#: src/includes/templates/admin/menu-pages/options/default.php:115
 msgid "When <code>_debug=\"true\"</code> and there is a problem with your syntax, an error is displayed on the site to make you aware.<hr /><code>_debug=\"verbose\"</code> displays additional details to help you diagnose problems.<hr />This setting controls the default value for this attribute."
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:116
+#: src/includes/templates/admin/menu-pages/options/default.php:120
 msgid "false"
 msgstr ""
 
-#: src/includes/templates/admin/menu-pages/options/default.php:117
+#: src/includes/templates/admin/menu-pages/options/default.php:121
 msgid "true"
 msgstr ""
 

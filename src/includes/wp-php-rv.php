@@ -19,7 +19,7 @@ $GLOBALS['wp_php_rv'] = array(
     'extensions' => array(), //php-required-extensions//
 
     'wp' => array(
-        'min' => '4.5.3', //wp-required-version//
+        'min' => '4.6', //wp-required-version//
     ),
 ); // The following keys are for back compat. only.
 $GLOBALS['wp_php_rv']['rv'] = $GLOBALS['wp_php_rv']['min'];

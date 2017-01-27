@@ -42,7 +42,7 @@ class App extends SCoreClasses\App
      *
      * @type string Version.
      */
-    const VERSION = '160919.18816'; //v//
+    const VERSION = '170127.85613'; //v//
 
     /**
      * Constructor.
@@ -95,6 +95,7 @@ class App extends SCoreClasses\App
                 'whitelisted_arbitrary_atts' => '',
 
                 'content_filters' => [
+                    'wp-markdown-extra',
                     'jetpack-markdown',
                     'jetpack-latex',
                     'wptexturize',
@@ -171,6 +172,10 @@ class App extends SCoreClasses\App
 
             s::addFilter('content', [$this->Utils->Shortcode, 'onContentforceNestedIfBlocks'], -10000);
 
+            if (in_array('wp-markdown-extra', $content_filters, true) && s::canWpMdExtra()) {
+                s::addFilter('content', c::class.'::stripLeadingIndents', -10000);
+                s::addFilter('content', s::class.'::wpMdExtra', -10000);
+            }
             if (in_array('jetpack-markdown', $content_filters, true) && s::jetpackCanMarkdown()) {
                 s::addFilter('content', c::class.'::stripLeadingIndents', -10000);
                 s::addFilter('content', s::class.'::jetpackMarkdown', -10000);

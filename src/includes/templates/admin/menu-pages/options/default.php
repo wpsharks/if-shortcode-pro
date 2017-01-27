@@ -91,12 +91,13 @@ $Form = $this->s::menuPageForm('§save-options');
 
         <?= $Form->selectRow([
             'label' => __('Content Filters', 'if-shortcode'),
-            'tip'   => __('This controls which built-in WordPress content filters are applied to content inside [if] shortcodes. Selecting all content filters is suggested.<hr />Note: <code>jetpack-markdown</code> is only possible if you have Jetpack installed with Markdown enabled. The same is true for <code>jetpack-latex</code>.', 'if-shortcode'),
+            'tip'   => __('This controls which built-in WordPress content filters are applied to content inside [if] shortcodes. Selecting all content filters is suggested.<hr />Note: <code>wp-markdown-extra</code> is only possible if you have WP Markdown Extra installed.<hr /><code>jetpack-markdown</code> is only possible if you have Jetpack installed with Markdown enabled. The same is true for <code>jetpack-latex</code>.', 'if-shortcode'),
 
             'name'     => 'content_filters',
             'multiple' => true, // i.e., An array.
             'value'    => s::getOption('content_filters'),
             'options'  => [
+                'wp-markdown-extra'                 => 'wp-markdown-extra',
                 'jetpack-markdown'                  => 'jetpack-markdown',
                 'jetpack-latex'                     => 'jetpack-latex',
                 'wptexturize'                       => 'wptexturize',
