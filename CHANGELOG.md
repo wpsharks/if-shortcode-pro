@@ -1,4 +1,4 @@
-## v170127.85613
+## $v
 
 - Adding support for `wp-markdown-extra` filter configuration.
 - Bumping minimum required WordPress version to v4.6.
