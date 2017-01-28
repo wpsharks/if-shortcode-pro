@@ -2,6 +2,7 @@ project_title                               = [if] Shortcode Pro
 
 project_owner                               = websharks
 project_slug                                = if-shortcode-pro
+
 project_text_domain                         = if-shortcode
 project_slack_channel                       = if-shortcode
 
@@ -10,6 +11,7 @@ project_sub_namespace                       = WpSharksIfShortcodePro
 
 project_lite_title                          = [if] Shortcode
 project_lite_slug                           = if-shortcode
+
 project_lite_text_domain                    = if-shortcode
 
 project_lite_namespace                      = WebSharks\\WpSharks\\IfShortcode
@@ -23,7 +25,7 @@ project_php_required_bits                   = 64
 project_php_required_extensions             =
 
 project_wp_required_version                 = 4.6
-project_wp_tested_up_to_version             = 4.7
+project_wp_tested_up_to_version             = 4.8-alpha
 
 project_wp_sharks_core_required_version     = 170127
 project_wp_sharks_core_tested_up_to_version = 170127

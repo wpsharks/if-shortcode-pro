@@ -1,8 +1,8 @@
 === [if] Shortcode Pro ===
 
-Stable tag: 170127.86043
+Stable tag: 170128.2500
 
-Tested up to: 4.7
+Tested up to: 4.8-alpha
 Requires at least: 4.6
 
 Text Domain: if-shortcode
