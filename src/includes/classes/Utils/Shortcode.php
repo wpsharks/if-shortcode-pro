@@ -490,14 +490,14 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         /*
          * Evaluate, if possible.
          */
-        try { // We can catch problems in PHP 7+ via exception.
+        try { // We can catch problems in PHP 7+.
             if (!$this->current_errors && $this->current_conditions && $this->can_eval) {
                 $conditions_true = c::phpEval('return ('.$this->current_conditions.');');
             } else {
-                $conditions_true = false; // Force false; not possible.
+                $conditions_true = false; // On not possible.
             }
         } catch (\Throwable $eval_Throwable) {
-            $conditions_true        = false; // Force false.
+            $conditions_true        = false; // On failure.
             $this->current_errors[] = $eval_Throwable->getMessage();
         }
 
@@ -643,7 +643,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
      *
      * @return $string Filtered content.
      */
-    public function onContentforceNestedIfBlocks($content): string
+    public function onContentForceNestedIfBlocks($content): string
     {
         $content = (string) $content;
 

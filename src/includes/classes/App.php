@@ -42,7 +42,7 @@ class App extends SCoreClasses\App
      *
      * @type string Version.
      */
-    const VERSION = '170128.2500'; //v//
+    const VERSION = '170220.12683'; //v//
 
     /**
      * Constructor.
@@ -64,6 +64,9 @@ class App extends SCoreClasses\App
             ],
 
             '§specs' => [
+                '§in_wp'           => false,
+                '§is_network_wide' => false,
+
                 '§type' => 'plugin',
                 '§file' => dirname(__FILE__, 4).'/plugin.php',
             ],
@@ -170,7 +173,7 @@ class App extends SCoreClasses\App
 
             $content_filters = s::getOption('content_filters'); // By site owner.
 
-            s::addFilter('content', [$this->Utils->Shortcode, 'onContentforceNestedIfBlocks'], -10000);
+            s::addFilter('content', [$this->Utils->Shortcode, 'onContentForceNestedIfBlocks'], -10000);
 
             if (in_array('wp-markdown-extra', $content_filters, true) && s::canWpMdExtra()) {
                 s::addFilter('content', c::class.'::stripLeadingIndents', -10000);

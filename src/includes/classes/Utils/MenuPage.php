@@ -5,7 +5,7 @@
  * @author @jaswsinc
  * @copyright WP Sharks™
  */
-declare (strict_types = 1);
+declare(strict_types=1);
 namespace WebSharks\WpSharks\IfShortcode\Pro\Classes\Utils;
 
 use WebSharks\WpSharks\IfShortcode\Pro\Classes;
@@ -46,12 +46,9 @@ class MenuPage extends SCoreClasses\SCore\Base\Core
             'parent_page'   => 'options-general.php',
             'template_file' => 'admin/menu-pages/options/default.php',
 
-            'tabs' => [
+            'meta_links' => ['restore' => true],
+            'tabs'       => [
                 'default' => sprintf(__('%1$s', 'if-shortcode'), esc_html($this->App->Config->©brand['©name'])),
-                'restore' => [
-                    'label' => __('Restore Default Options', 'if-shortcode'),
-                    'url'   => s::restoreDefaultOptionsUrl(), 'onclick' => 'confirm',
-                ],
             ],
         ]);
     }
