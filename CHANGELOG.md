@@ -1,4 +1,4 @@
-## $v
+## v170220.78352-RC
 
 - Bumping minimum required version of the WP Sharks Core.
 - Bumping minimum required WordPress version to v4.6.
