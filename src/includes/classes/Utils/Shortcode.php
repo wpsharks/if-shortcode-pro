@@ -280,6 +280,9 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
             '_for_blog' => '0', // A specific blog ID.
             '_satisfy'  => 'all', // `any` or `all` (default).
 
+            // No-cache declaration.
+            '_no_cache' => '', // Prevent page caching?
+
             // Debugging attributes.
             '_debug' => $this->debug_att_default,
             // `1|on|yes|true|0|off|no|false` (or `verbose`).
@@ -294,6 +297,8 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
 
         $atts['_for_blog'] = (int) $atts['_for_blog'];
         $atts['_satisfy']  = $atts['_satisfy'] === 'any' ? 'any' : 'all';
+
+        $atts['_no_cache'] = filter_var($atts['_no_cache'], FILTER_VALIDATE_BOOLEAN);
 
         if ($atts['_debug'] && $atts['_debug'] !== 'verbose') {
             $atts['_debug'] = filter_var($atts['_debug'], FILTER_VALIDATE_BOOLEAN);
@@ -311,6 +316,11 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         $this->current_atts       = $atts;
         $this->current_conditions = '';
         $this->current_errors     = [];
+
+        /*
+         * Maybe prevent caching.
+         */
+        $this->maybeNoCache(); // Based on atts.
 
         /*
          * Initial validations.
@@ -576,6 +586,18 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
          */
         $output        = $conditions_true ? $content_if : $content_else;
         return $output = $debug_verbose.$output; // With possible debug info.
+    }
+
+    /**
+     * Maybe no-cache.
+     *
+     * @since 17xxxx Maybe no-cache.
+     */
+    protected function maybeNoCache()
+    {
+        if ($this->current_atts['_no_cache']) {
+            c::noCacheFlags(); // Disallow page caching.
+        } // Tells caching plugins NOT to cache the output of current page.
     }
 
     /**

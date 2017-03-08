@@ -1,5 +1,6 @@
 ## $v
 
+- Adding support for `_no_cache` attribute.
 - Bumping minimum required version of the WP Sharks Core.
 - Bumping minimum required WordPress version to v4.6.
 - Adding support for `wp-markdown-extra` filter configuration.
