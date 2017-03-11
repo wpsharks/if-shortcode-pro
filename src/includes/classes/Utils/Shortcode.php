@@ -230,7 +230,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         $this->enable_for_blog_att        = (bool) s::getOption('enable_for_blog_att');
         $this->enable_arbitrary_atts      = (bool) s::getOption('enable_arbitrary_atts');
         $this->whitelisted_arbitrary_atts = $this->enable_arbitrary_atts ? preg_split('/[\s,]+/u', s::getOption('whitelisted_arbitrary_atts'), -1, PREG_SPLIT_NO_EMPTY) : [];
-        $this->debug_att_default          = s::getOption('debug_att_default');
+        $this->debug_att_default          = s::getOption('debug_att_default') ? '1' : '0';
     }
 
     /**
@@ -250,7 +250,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         $this->maybeInitialize();
 
         /*
-         * Content/shortcode.
+         * Atts/content/shortcode.
          */
         $atts      = is_array($atts) ? $atts : [];
         $content   = (string) $content;
@@ -297,7 +297,6 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
 
         $atts['_for_blog'] = (int) $atts['_for_blog'];
         $atts['_satisfy']  = $atts['_satisfy'] === 'any' ? 'any' : 'all';
-
         $atts['_no_cache'] = filter_var($atts['_no_cache'], FILTER_VALIDATE_BOOLEAN);
 
         if ($atts['_debug'] && $atts['_debug'] !== 'verbose') {

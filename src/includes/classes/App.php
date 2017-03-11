@@ -42,7 +42,7 @@ class App extends SCoreClasses\App
      *
      * @type string Version.
      */
-    const VERSION = '170308.49783'; //v//
+    const VERSION = '170311.43006'; //v//
 
     /**
      * Constructor.
@@ -90,10 +90,10 @@ class App extends SCoreClasses\App
                 'content_filters',
             ],
             '§default_options' => [
-                'enable_php_att'      => '0',
-                'enable_for_blog_att' => '0',
+                'enable_php_att'      => false,
+                'enable_for_blog_att' => false,
 
-                'enable_arbitrary_atts'      => '0',
+                'enable_arbitrary_atts'      => false,
                 'whitelisted_arbitrary_atts' => '',
 
                 'content_filters' => [
@@ -108,7 +108,7 @@ class App extends SCoreClasses\App
                     'do_shortcode',
                     'convert_smilies',
                 ],
-                'debug_att_default' => '1',
+                'debug_att_default' => false,
             ],
         ];
         parent::__construct($instance_base, $instance);

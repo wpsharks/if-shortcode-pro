@@ -42,7 +42,7 @@ $Form = $this->s::menuPageForm('§save-options');
         <?php if ($this->Wp->is_multisite) : ?>
             <?= $Form->selectRow([
                 'label' => __('Enable Multisite <code>_for_blog=""</code> Attribute?', 'if-shortcode'),
-                'tip'   => __('Allows cross-blog conditionals when used together with current_user_can="".', 'if-shortcode'),
+                'tip'   => __('Allows cross-blog conditionals via <code>current_user_can=""</code>', 'if-shortcode'),
 
                 'name'    => 'enable_for_blog_att',
                 'value'   => s::getOption('enable_for_blog_att'),
@@ -55,7 +55,7 @@ $Form = $this->s::menuPageForm('§save-options');
 
         <?= $Form->selectRow([
             'label' => __('Enable Arbitrary Attributes?', 'if-shortcode'),
-            'tip'   => __('In addition to attributes that come with the [if] shortcoe already, this allows any PHP function to automatically become a shortcode attribute.', 'if-shortcode'),
+            'tip'   => __('In addition to Attributes that come with the [if] Shortcode already, this allows any PHP function to automatically become a Shortcode Attribute too, which is quite handy.', 'if-shortcode'),
 
             'name'    => 'enable_arbitrary_atts',
             'value'   => s::getOption('enable_arbitrary_atts'),
@@ -67,14 +67,10 @@ $Form = $this->s::menuPageForm('§save-options');
 
         <?= $Form->textareaRow([
             'label' => __('Arbitrary Attribute Whitelist', 'if-shortcode'),
-            'tip'   => __('If you enable Arbitrary Attributes, you can make them more secure by providing a whitelist. So instead of allowing <em>any</em> PHP function to become an attribute, allow only those you that list here.<hr />Please separate them with a space, comma, or line break.', 'if-shortcode'),
+            'tip'   => __('If you enable Arbitrary Attributes, you can make them more secure by providing a whitelist.<hr />In other words, instead of allowing <em>any</em> PHP function to become an Attribute, allow only those you list here.<hr />Separate them with a space, comma, or line break.', 'if-shortcode'),
 
             'name'    => 'whitelisted_arbitrary_atts',
             'value'   => s::getOption('whitelisted_arbitrary_atts'),
-            'options' => [
-                '0' => __('No', 'if-shortcode'),
-                '1' => __('Yes', 'if-shortcode'),
-            ],
         ]); ?>
 
         <?= $Form->selectRow([
@@ -112,7 +108,7 @@ $Form = $this->s::menuPageForm('§save-options');
 
         <?= $Form->selectRow([
             'label' => __('<code>_debug=""</code> Default Value', 'if-shortcode'),
-            'tip'   => __('When <code>_debug="true"</code> and there is a problem with your syntax, an error is displayed on the site to make you aware.<hr /><code>_debug="verbose"</code> displays additional details to help you diagnose problems.<hr />This setting controls the default value for this attribute.', 'if-shortcode'),
+            'tip'   => __('When <code>_debug="true"</code> and there is a problem with your syntax, an error is displayed.<hr /><code>_debug="verbose"</code> displays additional details to help you diagnose problems.<hr />This setting controls the default value for this attribute.', 'if-shortcode'),
 
             'name'    => 'debug_att_default',
             'value'   => s::getOption('debug_att_default'),
