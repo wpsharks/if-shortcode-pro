@@ -8,6 +8,7 @@
 - Enhancing security be removing `basename(__FILE__)` from direct access notices.
 - Removing unnecessary lite build variation from `.build.props` file.
 - Cleaned up the options page just a bit and corrected some typos.
+- Automatically strip leading indents for improved compatibility with Markdown parsers like Jetpack and WP Markdown Extra Pro, etc.
 
 ## v160919.18816
 

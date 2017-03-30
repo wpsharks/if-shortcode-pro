@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the [if] Shortcode Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: [if] Shortcode Pro 170311.43006\n"
+"Project-Id-Version: [if] Shortcode Pro 170330.12821\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/if-shortcode-pro\n"
-"POT-Creation-Date: 2017-03-11 11:56:49+00:00\n"
+"POT-Creation-Date: 2017-03-30 03:33:44+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,7 +74,7 @@ msgid_plural "<code>[%1$s]</code> Shortcode Errors"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/includes/classes/Utils/Shortcode.php:613
+#: src/includes/classes/Utils/Shortcode.php:615
 msgid "`[%1$s]` shortcode attribute contains an invalid (or imbalanced) expression: `%2$s=\"%3$s\"`"
 msgstr ""
 

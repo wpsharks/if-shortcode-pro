@@ -570,6 +570,8 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
             $content_if   = $content; // No `[else]` tag.
             $content_else = ''; // Default (empty).
         }
+        $content_if   = c::stripLeadingIndents($content_if);
+        $content_else = c::stripLeadingIndents($content_else);
 
         /*
          * Apply shortcode content filters.
@@ -671,14 +673,16 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         if (mb_strpos($content, '[_') === false) {
             return $content; // Nothing to do.
         }
-        // Each `[if]` content fragment is treated as a stand-alone document.
+        $content = c::normalizeEols($content);
+
+        // Each `[if]` content fragment is treated as a stand-alone document when parsing.
         // Nested `[_if]` tags must be separated by 2+ line breaks so `wpautop()` will create
-        // separate `<p>` blocks instead of using `<br />` tags.
+        // separate `<p>` blocks instead of using `<br />` tags to separate.
 
-        // i.e., We want to avoid `<p>` tags inside `<p>` tags.
-        // e.g., `<p>if content<br /><p>nested _if content</p></p>`
+        // We want to avoid `<p>` tags inside `<p>` tags separated by `<br />`, like this:
+        // `<p>if content<br /><p>nested _if content</p></p>`
 
-        // By forcing nested `[_if]` blocks we get:
+        // By forcing nested `[_if]` blocks we avoid that problem, so we get this:
         // `<p>if content</p><p>nested _if content</p>`
 
         // This only impacts nested `[_if]` tags that are already on a line of their own.
@@ -686,6 +690,6 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         $regex          = '/(^|['."\n".']+)(['."\t".' ]*\[_+'.$this->tag_name_regex_frag.'\s)/u';
         return $content = preg_replace_callback($regex, function ($m) {
             return !isset($m[1][0]) || isset($m[1][1]) ? $m[0] : "\n\n".$m[2];
-        }, c::normalizeEols($content));
+        }, $content);
     }
 }
