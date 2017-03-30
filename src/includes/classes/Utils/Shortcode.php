@@ -564,14 +564,15 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
          */
         $else_tag = '['.str_repeat('_', $this->current_depth).$this->else_tag_name.']';
 
+        // NOTE: Leading indents are stripped by content filters
+        // whenever Markdown is being applied. So no need to do that here.
+
         if (mb_strpos($content, $else_tag) !== false) {
             list($content_if, $content_else) = explode($else_tag, $content, 2);
         } else {
             $content_if   = $content; // No `[else]` tag.
             $content_else = ''; // Default (empty).
         }
-        $content_if   = c::stripLeadingIndents($content_if);
-        $content_else = c::stripLeadingIndents($content_else);
 
         /*
          * Apply shortcode content filters.
@@ -673,7 +674,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         if (mb_strpos($content, '[_') === false) {
             return $content; // Nothing to do.
         }
-        $content = c::normalizeEols($content);
+        $content = c::normalizeEols($content); // Needed below.
 
         // Each `[if]` content fragment is treated as a stand-alone document when parsing.
         // Nested `[_if]` tags must be separated by 2+ line breaks so `wpautop()` will create
