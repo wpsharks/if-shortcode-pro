@@ -5,7 +5,7 @@
  * @author @jaswsinc
  * @copyright WP Sharks™
  */
-declare (strict_types = 1);
+declare(strict_types=1);
 namespace WebSharks\WpSharks\IfShortcode\Pro\Classes\Utils;
 
 use WebSharks\WpSharks\IfShortcode\Pro\Classes;

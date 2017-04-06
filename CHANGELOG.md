@@ -1,6 +1,8 @@
 ## $v
 
 - Adding support for `_no_cache` attribute.
+- Adding support for `ua_is_engine="true|false"` attribute.
+- Adding support for `ua_is_bot="true|false"` attribute.
 - Bumping minimum required WordPress version to v4.6.
 - Bumping minimum required version of the WP Sharks Core.
 - Adding support for `wp-markdown-extra` filter configuration.

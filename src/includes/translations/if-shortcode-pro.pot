@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the [if] Shortcode Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: [if] Shortcode Pro 170330.13319\n"
+"Project-Id-Version: [if] Shortcode Pro 170406.32339\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/if-shortcode-pro\n"
-"POT-Creation-Date: 2017-03-30 03:42:03+00:00\n"
+"POT-Creation-Date: 2017-04-06 08:59:02+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,65 +16,65 @@ msgstr ""
 msgid "%1$s"
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:328
+#: src/includes/classes/Utils/Shortcode.php:331
 msgid "The `[%1$s]` shortcode requires the legitimate use of PHP `eval()`."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:329
+#: src/includes/classes/Utils/Shortcode.php:332
 msgid "Unfortunately, `eval()` is currently disabled by your PHP configuration. Therefore, the use of this shortcode will not be possible."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:330
+#: src/includes/classes/Utils/Shortcode.php:333
 msgid "To resolve this issue, please contact your server administrator and ask them to enable `eval()` in PHP."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:333
+#: src/includes/classes/Utils/Shortcode.php:336
 msgid "`[%1$s]` shortcode attribute `php=\"%2$s\"` is not enabled via plugin options."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:336
+#: src/includes/classes/Utils/Shortcode.php:339
 msgid "`[%1$s]` shortcode attribute `_for_blog=\"%2$s\"` is not enabled via plugin options."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:339
+#: src/includes/classes/Utils/Shortcode.php:342
 msgid "`[%1$s]` shortcode attribute names, by themselves, without `=\"\"`, are not supported at this time; because that particular format depends on functionality which may change in a future version of WP."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:472
+#: src/includes/classes/Utils/Shortcode.php:495
 msgid "`[%1$s]` shortcode attribute `%2$s`, by itself, without `=\"\"`, is not supported. Instead, use `%2$s=\"true\"`. Consult the shortcode documentation for assistance."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:477
+#: src/includes/classes/Utils/Shortcode.php:500
 msgid "Arbitrary `[%1$s]` shortcode attribute `%2$s=\"%3$s\"` is not enabled via plugin options."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:479
+#: src/includes/classes/Utils/Shortcode.php:502
 msgid "Arbitrary `[%1$s]` shortcode attribute `%2$s=\"%3$s\"` is not whitelisted via plugin options."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:481
+#: src/includes/classes/Utils/Shortcode.php:504
 msgid "Arbitrary `[%1$s]` shortcode attribute `%2$s=\"%3$s\"` contains invalid chars in the attribute name. Must match: `^[a-z][a-z0-9_]+[a-z0-9]$`."
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:518
+#: src/includes/classes/Utils/Shortcode.php:541
 msgid "<code>[%1$s]</code> Shortcode Verbose"
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:519
+#: src/includes/classes/Utils/Shortcode.php:542
 msgid "<code>[%1$s]</code> Shortcode Atts"
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:520
+#: src/includes/classes/Utils/Shortcode.php:543
 msgid "<code>[%1$s]</code> Shortcode Conditions"
 msgstr ""
 
-#: src/includes/classes/Utils/Shortcode.php:538
+#: src/includes/classes/Utils/Shortcode.php:561
 msgid "<code>[%1$s]</code> Shortcode Error"
 msgid_plural "<code>[%1$s]</code> Shortcode Errors"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/includes/classes/Utils/Shortcode.php:616
+#: src/includes/classes/Utils/Shortcode.php:639
 msgid "`[%1$s]` shortcode attribute contains an invalid (or imbalanced) expression: `%2$s=\"%3$s\"`"
 msgstr ""
 

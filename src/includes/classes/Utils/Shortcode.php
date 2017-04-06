@@ -276,6 +276,9 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
 
             'request_var' => '', // Request var expression.
 
+            'ua_is_engine' => '', // `true|false`.
+            'ua_is_bot'    => '', // `true|false`.
+
             // Attribute modifiers.
             '_for_blog' => '0', // A specific blog ID.
             '_satisfy'  => 'all', // `any` or `all` (default).
@@ -454,6 +457,26 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                         $this->appendConditions($this->simpleExpr($_att_key, function ($key) {
                             return a::class.'::requestVar('.c::sQuote($key).')';
                         }));
+                    }
+                    break;
+
+                /*
+                 * `ua_is_engine="[true|false]"`
+                 */
+                case 'ua_is_engine':
+                    if ($this->current_atts[$_att_key]) {
+                        $_negating = $this->current_atts[$_att_key] === 'false' ? '!' : '';
+                        $this->appendConditions($_negating.c::class.'::uaIsEngine()');
+                    }
+                    break;
+
+                /*
+                 * `ua_is_bot="[true|false]"`
+                 */
+                case 'ua_is_bot':
+                    if ($this->current_atts[$_att_key]) {
+                        $_negating = $this->current_atts[$_att_key] === 'false' ? '!' : '';
+                        $this->appendConditions($_negating.'!'.c::class.'::uaIsEngine()');
                     }
                     break;
 
