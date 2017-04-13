@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the [if] Shortcode Pro package.
 msgid ""
 msgstr ""
-"Project-Id-Version: [if] Shortcode Pro 170407.77796-RC\n"
+"Project-Id-Version: [if] Shortcode Pro 170413.74328\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/if-shortcode-pro\n"
-"POT-Creation-Date: 2017-04-07 21:36:59+00:00\n"
+"POT-Creation-Date: 2017-04-13 20:39:00+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
