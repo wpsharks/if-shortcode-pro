@@ -1,3 +1,8 @@
+## $v
+
+- For all `current_user_*` shortcode attributes, accept shorter `user_*` aliases an an alternative.
+- For `is_user_logged_in`, accept the shorter alias `is_logged_in`.
+
 ## v170413.74328
 
 - Adding support for `_no_cache` attribute.

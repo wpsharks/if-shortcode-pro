@@ -263,6 +263,9 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
             // PHP attribute.
             'php' => '', // PHP expression.
 
+            // NOTE: All of these `current_user_*` attributes
+            // support shorter `user_*` aliases for ease of use.
+
             // WordPress user-specific attributes.
             'current_user_is_logged_in' => '', // `true|false`.
             'current_user_can'          => '', // Role/cap expression.
@@ -367,6 +370,8 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 /*
                  * `current_user_is_logged_in="[true|false]"`
                  */
+                case 'is_logged_in':
+                case 'user_is_logged_in':
                 case 'current_user_is_logged_in':
                     if ($this->current_atts[$_att_key]) {
                         $_negating = $this->current_atts[$_att_key] === 'false' ? '!' : '';
@@ -377,6 +382,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 /*
                  * `current_user_can="[expr]"`
                  */
+                case 'user_can':
                 case 'current_user_can':
                     if ($this->current_atts[$_att_key]) {
                         $this->appendConditions($this->simpleExpr($_att_key, function ($cap) {
@@ -390,6 +396,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 /*
                  * `current_user_option="[expr]"`
                  */
+                case 'user_option':
                 case 'current_user_option':
                     if ($this->current_atts[$_att_key]) {
                         $this->appendConditions($this->simpleExpr($_att_key, function ($option_key) {
@@ -401,6 +408,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 /*
                  * `current_user_meta="[expr]"`
                  */
+                case 'user_meta':
                 case 'current_user_meta':
                     if ($this->current_atts[$_att_key]) {
                         $this->appendConditions($this->simpleExpr($_att_key, function ($meta_key) {
@@ -416,6 +424,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 /*
                  * `current_user_is_paying_customer="[true|false]"`
                  */
+                case 'user_is_paying_customer':
                 case 'current_user_is_paying_customer':
                     if ($this->current_atts[$_att_key]) {
                         $_negating = $this->current_atts[$_att_key] === 'false' ? '!' : '';
@@ -426,6 +435,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 /*
                  * `current_user_bought_product="[expr]"`
                  */
+                case 'user_bought_product':
                 case 'current_user_bought_product':
                     if ($this->current_atts[$_att_key]) {
                         $this->appendConditions($this->simpleExpr($_att_key, function ($product_id_or_sku) {
@@ -437,6 +447,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                 /*
                  * `current_user_can_download="[expr]"`
                  */
+                case 'user_can_download':
                 case 'current_user_can_download':
                     if ($this->current_atts[$_att_key]) {
                         $this->appendConditions($this->simpleExpr($_att_key, function ($product_id_or_sku) {
@@ -502,7 +513,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                             $this->current_errors[] = sprintf(__('Arbitrary `[%1$s]` shortcode attribute `%2$s="%3$s"` is not whitelisted via plugin options.', 'if-shortcode'), $this->current_shortcode, $_att_key, $this->current_atts[$_att_key]);
                         } elseif (!preg_match('/^[a-z][a-z0-9_]+[a-z0-9]$/u', $_att_key)) { // Make this extra strict to avoid future compatibility issues.
                             $this->current_errors[] = sprintf(__('Arbitrary `[%1$s]` shortcode attribute `%2$s="%3$s"` contains invalid chars in the attribute name. Must match: `^[a-z][a-z0-9_]+[a-z0-9]$`.', 'if-shortcode'), $this->current_shortcode, $_att_key, $this->current_atts[$_att_key]);
-                        //
+                            //
                         } elseif ($this->current_atts[$_att_key] === 'true' || $this->current_atts[$_att_key] === 'false') {
                             $_negating                     = $this->current_atts[$_att_key] === 'false' ? '!' : '';
                             $_arbitrary_att_bool_condition = s::applyFilters('arbitrary_att_bool_condition', $_negating.$_att_key.'()', $_att_key, $this->current_atts[$_att_key]);
@@ -572,9 +583,9 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                                 '</li>'.
                             '</ul>'.
                         '</div>';
-            /*
-             * Else, if debugging, trigger PHP warning.
-             */
+                /*
+                 * Else, if debugging, trigger PHP warning.
+                 */
             } elseif ($this->App->Config->©debug['©enable']) {
                 debug(0, c::issue(vars(), implode("\n", $this->current_errors)));
                 trigger_error(implode("\n", $this->current_errors), E_USER_WARNING);
