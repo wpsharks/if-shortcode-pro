@@ -269,6 +269,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
             // WordPress user-specific attributes.
             'current_user_is_logged_in' => '', // `true|false`.
             'current_user_can'          => '', // Role/cap expression.
+            'current_user_can_access'   => '', // Arg 2 to `has_cap()`.
             'current_user_option'       => '', // Meta key expression.
             'current_user_meta'         => '', // Meta key expression.
 
@@ -395,6 +396,20 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                             return $this->current_atts['_for_blog'] && $this->Wp->is_multisite
                                 ? 'current_user_can_for_blog('.$this->current_atts['_for_blog'].', '.c::sQuote($cap).')'
                                 : 'current_user_can('.c::sQuote($cap).')';
+                        }));
+                    }
+                    break;
+
+                /*
+                 * `current_user_can_access="[expr]"`
+                 */
+                case 'user_can_access':
+                case 'current_user_can_access':
+                    if ($this->current_atts[$_att_key]) {
+                        $this->appendConditions($this->simpleExpr($_att_key, function ($arg) {
+                            return $this->current_atts['_for_blog'] && $this->Wp->is_multisite
+                                ? 'current_user_can_for_blog('.$this->current_atts['_for_blog'].', \'access\', '.c::sQuote($arg, true).')'
+                                : 'current_user_can(\'access\', '.c::sQuote($arg, true).')';
                         }));
                     }
                     break;
