@@ -323,6 +323,12 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         $this->current_errors     = [];
 
         /*
+         * Globalize current atts so functions can read them when necessary.
+         * e.g., For arbitrary attributes that call upon custom global functions.
+         */
+        $GLOBALS['current_'.$this->tag_name.'_shortcode_atts'] = &$this->current_atts;
+
+        /*
          * Maybe prevent caching.
          */
         $this->maybeNoCache(); // Based on atts.
@@ -509,8 +515,10 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                         //
                         if (!$this->enable_arbitrary_atts) {
                             $this->current_errors[] = sprintf(__('Arbitrary `[%1$s]` shortcode attribute `%2$s="%3$s"` is not enabled via plugin options.', 'if-shortcode'), $this->current_shortcode, $_att_key, $this->current_atts[$_att_key]);
+                            //
                         } elseif ($this->whitelisted_arbitrary_atts && !in_array($_att_key, $this->whitelisted_arbitrary_atts, true)) {
                             $this->current_errors[] = sprintf(__('Arbitrary `[%1$s]` shortcode attribute `%2$s="%3$s"` is not whitelisted via plugin options.', 'if-shortcode'), $this->current_shortcode, $_att_key, $this->current_atts[$_att_key]);
+                            //
                         } elseif (!preg_match('/^[a-z][a-z0-9_]+[a-z0-9]$/u', $_att_key)) { // Make this extra strict to avoid future compatibility issues.
                             $this->current_errors[] = sprintf(__('Arbitrary `[%1$s]` shortcode attribute `%2$s="%3$s"` contains invalid chars in the attribute name. Must match: `^[a-z][a-z0-9_]+[a-z0-9]$`.', 'if-shortcode'), $this->current_shortcode, $_att_key, $this->current_atts[$_att_key]);
                             //
@@ -518,6 +526,7 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
                             $_negating                     = $this->current_atts[$_att_key] === 'false' ? '!' : '';
                             $_arbitrary_att_bool_condition = s::applyFilters('arbitrary_att_bool_condition', $_negating.$_att_key.'()', $_att_key, $this->current_atts[$_att_key]);
                             $this->appendConditions($_arbitrary_att_bool_condition); // Allows for a custom condition filter.
+                            //
                         } else { // Treat it as a simple expression.
                             $_arbitrary_att_expr_callback = s::applyFilters('arbitrary_att_expr_callback', function ($args) use ($_att_key) {
                                 return $_att_key.'('.implode(', ', c::sQuote(explode(',', $args))).')'; // Default callback.
@@ -561,6 +570,11 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
          * Do we have any errors?
          */
         if ($this->current_errors) {
+            /*
+             * Ditch these now & keep the global environment clean.
+             */
+            unset($GLOBALS['current_'.$this->tag_name.'_shortcode_atts']);
+
             /*
              * Returns errors to browser?
              */
@@ -616,6 +630,11 @@ class Shortcode extends SCoreClasses\SCore\Base\Core
         } elseif (!$conditions_true && $content_else) {
             $content_else = s::applyFilters('content', $content_else);
         }
+
+        /*
+         * Ditch these now & keep the global environment clean.
+         */
+        unset($GLOBALS['current_'.$this->tag_name.'_shortcode_atts']);
 
         /*
          * Return shortcode output.

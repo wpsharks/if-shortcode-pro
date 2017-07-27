@@ -2,6 +2,7 @@
 
 - For all `current_user_*` shortcode attributes, accept shorter `user_*` aliases an an alternative.
 - For `is_user_logged_in`, accept the shorter alias `is_logged_in`.
+- Now setting `$GLOBALS['current_if_shortcode_atts']` before calling upon arbitrary custom attribute handlers. This allows for global functions to adjust their output based on any custom attributes that developers would like to support arbitrarily.
 
 ## v170413.74328
 
